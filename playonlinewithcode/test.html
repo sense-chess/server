@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test chess - E-CHESS</title>
+    <link rel="shortcut icon" href="../echess.png">
+	<link rel="icon" type="image/png" href="../echess.svg">
+	<link rel="image_src" href="../echess.svg" />
+    <link rel="apple-touch-icon" href="../echess.png" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="board" class="board" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false"></div>
+<div class="info">
+    Search depth:
+    <select id="search-depth">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <br>
+	<form action="#">Move from 
+        <textarea id="from"></textarea> to <textarea id="to"></textarea>
+		<button onclick="updateByCode()">move</button>
+    </form>
+    <button id="notificationbutton">best move Notification</button>
+    <br>
+    <span>Positions evaluated: <span id="position-count"></span></span>
+    <br>
+    <span>Time: <span id="time"></span></span>
+    <br>
+    <span>Positions/s: <span id="positions-per-s"></span> </span>
+    <br>
+    <div id="move-history" class="move-history">
+    </div>
+</div>
+<br><br>
+<iframe id="bot" src='https://webchat.botframework.com/embed/e-chess?s=Jqx5aqm1iVY.cwA.DUA.AedfCL_eZjvZ1Ivds4EpakscHxXunGXP2QRnCL7qCcw'></iframe>
+<br><br>
+<p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
+<script src="lib/jquery/jquery-3.2.1.min.js"></script>
+<script src="lib/chessboardjs/js/chess.js"></script>
+<script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
+<script src="script.js"></script>
+<script>
+
+</script>
+</body>
+</html>

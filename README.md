@@ -20,4 +20,6 @@ local server of e-chess running our prototype
   <br>
   <a href="https://github.com/jhlywa/chess.js">chess.js</a>
   <br>
+  <a href="https://github.com/Xowap/PHP-Serial">php serial</a>
+  <br>
 </p>
