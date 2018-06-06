@@ -2,11 +2,11 @@ var board,
     game = new Chess();
   
 /*
- * The e-chess part starts here 
+ * The sense-chess part starts here 
  * It is a project at HfG Schwäbisch Gmünd in summer semester 2018.
  */
 
-// declare important variables and objects for e-chess 
+// declare important variables and objects for sense-chess 
 statusEl = $('#status'),
 fenEl = $('#fen'),
 pgnEl = $('#pgn');
@@ -28,7 +28,7 @@ var previousResponse = "";
 // update website in milliseconds
 setInterval(updateLatestEntry, 5000);
 
-// functions we need for e-chess
+// functions we need for sense-chess
 var updateByCode = function() {
     var from = document.querySelector('#from').value;
     var to = document.querySelector('#to').value;
@@ -148,13 +148,13 @@ document.querySelector('#notificationbutton').addEventListener('click', ev => {
 			return;
 		}
 		setTimeout(() => {
-			const msg = new Notification('e-chess HELP', {
+			const msg = new Notification('sense-chess HELP', {
 				body: txt,
 				lang: 'en',
 				icon: '../echess.svg',
 				image: '../echess.svg'
 			});
-			msg.onclick = ev => alert('You clicked the e-chess notification!');
+			msg.onclick = ev => alert('You clicked the sense-chess notification!');
 			msg.onerror = err => console.error(err);
 			msg.onshow = ev => console.info(ev);
 			msg.onclose = ev => console.info(ev);
