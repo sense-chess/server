@@ -1,6 +1,6 @@
 <?php 
-$servername = "Server";
-$username = "User";
-$password = "Password";
-$dbname = "PutYourDatabaseNameHere";
+$servername = "localhost";
+$username = "php";
+$password = "php2000";
+$dbname = "chess";
 ?>

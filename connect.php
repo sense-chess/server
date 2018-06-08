@@ -2,10 +2,10 @@
 
 	// Function to connect to the database
 	function Connection(){
-		$server="Server";
-		$user="User";
-		$pass="Password";
-		$db="PutYourDatabaseNameHere";
+		$server="localhost";
+		$user="php";
+		$pass="php2000";
+		$db="chess";
 	   	
 	   	// Connect to the database
 		$connection = mysqli_connect($server, $user, $pass, $db);
