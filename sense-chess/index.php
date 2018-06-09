@@ -75,6 +75,7 @@ if("callingPhpFunction" == $action) {
             <button id="notificationbutton">best move Notification</button>
             <br>
             <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
+            <button onclick="deleteEverythingFromEveryDatabase()">! delete EVERY data from database !</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>

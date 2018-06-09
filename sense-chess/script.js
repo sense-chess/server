@@ -149,6 +149,24 @@ var showBestMove = function () {
     bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var deleteEverythingFromEveryDatabase = function () {
+    if(confirm("Really delete EVERY data from ALL databases?")){
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost/sense-chess/deleteall.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.delete);
+            }
+        };
+        var data = JSON.stringify({"delete": "all"});
+        xhr.send(data);
+    }    
+}
+
 // event listener for show best move notification
 document.querySelector('#notificationbutton').addEventListener('click', ev => {
     ev.preventDefault();
