@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 
 function updateNewest($conn, $state){
     
-    $data = 'SELECT * FROM turns ORDER BY id DESC LIMIT 1';
+    $data = 'SELECT * FROM correctmoves ORDER BY id DESC LIMIT 1';
     $result = mysqli_query($conn, $data);
     if (!$result) {
         die ('SQL Error: ' . mysqli_error($conn));
@@ -74,12 +74,11 @@ if("callingPhpFunction" == $action) {
             </form>
             <button id="notificationbutton">best move Notification</button>
             <br>
+            <a href="toarduino.php?state=1">ON</a> / <a href="toarduino.php?state=0">OFF</a>
+            <br>
             <div id="move-history" class="move-history"></div>    
         </div>
         <br><br>
-        <iframe id="bot" src='https://webchat.botframework.com/embed/sense-chess?s=Jqx5aqm1iVY.cwA.DUA.AedfCL_eZjvZ1Ivds4EpakscHxXunGXP2QRnCL7qCcw'></iframe>
-        <br><br>
-        <p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
 
     <div id="reload">
 	<a href=""><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">

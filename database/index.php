@@ -7,7 +7,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $sql = 'SELECT * 
-		FROM test ';
+		FROM correctmoves ';
 		
 $query = mysqli_query($conn, $sql);
 if (!$query) {
@@ -68,9 +68,6 @@ setInterval(function(){
 		}?>
 		</tbody>
 	</table>
-	<br><br>
-	<br><br>
-	<p><a href="https://jan-patrick.de/imprint/">imprint & data protection</a></p>
 	<div id="reload">
 	<a href=""><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
    <g id="_xD83D__xDD04_">	   
