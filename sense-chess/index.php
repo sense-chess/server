@@ -74,7 +74,7 @@ if("callingPhpFunction" == $action) {
             </form>
             <button id="notificationbutton">best move Notification</button>
             <br>
-            <a href="toarduino.php?state=1">ON</a> / <a href="toarduino.php?state=0">OFF</a>
+            <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>

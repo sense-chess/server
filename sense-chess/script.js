@@ -116,6 +116,26 @@ function updateLatestEntry(){
     
 };
 
+var sendTestLEDDataToDatabase = function (){
+    var highlightTheseFields = ["d4", "d7", "d8"];
+    printLEDsToDatabase(highlightTheseFields);
+}
+
+var printLEDsToDatabase = function (fielder) {
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost/sense-chess/leds.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.fields);
+        }
+    };
+    var data = JSON.stringify({"fields": fielder});
+    xhr.send(data);
+}
+
 // returns the best move as string and highlighted pieces
 var showBestMove = function () {
     var bestMove = findBestMove(game);
