@@ -117,7 +117,7 @@ function updateLatestEntry(){
 };
 
 var sendTestLEDDataToDatabase = function (){
-    var highlightTheseFields = ["d4", "d7", "d8"];
+    var highlightTheseFields = "d2, d4, g8, h3";
     printLEDsToDatabase(highlightTheseFields);
 }
 
