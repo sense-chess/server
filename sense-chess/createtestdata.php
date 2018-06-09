@@ -10,11 +10,20 @@
 	$data = json_decode(file_get_contents('php://input'), true);
 
 	// String for the MySQL-Query: Here we insert the values of the JSON-Variable
-	$query = "INSERT INTO `leds` (`fields`) 
-		VALUES ('" . $data['fields'] . "')"; 
+	$query = "INSERT INTO `boardinput` (`field`) VALUES ('d4')";
+	$queryy = "INSERT INTO `correctmoves` (`source`, `target`) VALUES ('d2', 'd4')";
+	$queryyy = "INSERT INTO `leds` (`fields`) VALUES ('d4,f2,h6,e7,a1')";
 
-   	// Execute the MySQL-Query: Insert the values into the table "test"
+   	// Execute the MySQL-Query: Insert the values into the tables
 	if(!mysqli_query($link,$query))
+    {
+        die('Error : ' . mysql_error());
+	}
+	if(!mysqli_query($link,$queryy))
+    {
+        die('Error : ' . mysql_error());
+	}
+	if(!mysqli_query($link,$queryyy))
     {
         die('Error : ' . mysql_error());
     }

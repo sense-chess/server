@@ -117,7 +117,7 @@ function updateLatestEntry(){
 };
 
 var sendTestLEDDataToDatabase = function (){
-    var highlightTheseFields = "d2, d4, g8, h3";
+    var highlightTheseFields = "d2,d4,g8,h3,a2";
     printLEDsToDatabase(highlightTheseFields);
 }
 
@@ -148,6 +148,23 @@ var showBestMove = function () {
     highlightSquares(from, to);
     bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
+
+var createTestDataInEveryTable = function () {
+    if(confirm("Really create test data in EVERY table?")){
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost/sense-chess/createtestdata.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.create);
+            }
+        };
+        var data = JSON.stringify({"create": "every"});
+        xhr.send(data);
+    }    
+}
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var deleteEverythingFromEveryDatabase = function () {

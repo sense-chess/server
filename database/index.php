@@ -37,8 +37,8 @@ setInterval(function(){
 	}, 
 3000);
 </script>	
-<p><a href="https://jan-patrick.de/sense-chess">to CHESS page</a></p>
-<h1>test database</h1>
+<p><a href="http://localhost">to CHESS page</a></p>
+<h1>correctmoves table</h1>
 	<table class="data-table">
 		<caption class="title">inserted by Arduino Mega</caption>
 		<thead>
