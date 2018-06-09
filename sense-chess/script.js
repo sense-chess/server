@@ -171,8 +171,8 @@ document.querySelector('#notificationbutton').addEventListener('click', ev => {
 			const msg = new Notification('sense-chess HELP', {
 				body: txt,
 				lang: 'en',
-				icon: '../echess.svg',
-				image: '../echess.svg'
+				icon: '../sense-chess.svg',
+				image: '../sense-chess.svg'
 			});
 			msg.onclick = ev => alert('You clicked the sense-chess notification!');
 			msg.onerror = err => console.error(err);
