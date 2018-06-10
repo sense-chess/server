@@ -17,7 +17,8 @@
 <p  align="center">3. Set up our used user on local server: <br>
 <code  align="center">grant all privileges on chess.* to 'php'@'localhost'  identified by 'php2000';<br>
 flush privileges;</code></p>
-<p  align="center">4. Copy this repository into ../xampp/htdocs  (path depends on OS).</p>  
+<p  align="center">4. Copy this repository into ../xampp/htdocs  (path depends on OS).</p>
+<p  align="center">5. Delete the already existing index.php in htdocs to use our index.html</p>  
 <br>
 <h4 align="center">Attribution</h4>
 <p align="center">
@@ -26,7 +27,5 @@ flush privileges;</code></p>
   <a href="https://github.com/oakmac/chessboardjs">chessboardjs</a>
   <br>
   <a href="https://github.com/jhlywa/chess.js">chess.js</a>
-  <br>
-  <a href="https://github.com/Xowap/PHP-Serial">php serial</a>
   <br>
 </p>
