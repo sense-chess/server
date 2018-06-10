@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sense-chess/artwork/master/echess.png" width=80><br>
+  <img src="https://raw.githubusercontent.com/sense-chess/artwork/master/sense-chess.png" width=80><br>
 </p>
 <h1 align="center">local server files of sense-chess</h1>
 <br>
