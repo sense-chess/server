@@ -12,7 +12,7 @@
 	// String for the MySQL-Query: Here we insert the values of the JSON-Variable
 	$query = "INSERT INTO `boardinput` (`field`) VALUES ('d4')";
 	$queryy = "INSERT INTO `correctmoves` (`source`, `target`) VALUES ('d2', 'd4')";
-	$queryyy = "INSERT INTO `leds` (`fields`) VALUES ('d4,f2,h6,e7,a1')";
+	$queryyy = "INSERT INTO `leds` (`fields`) VALUES ('1,2,3,4,64')";
 
    	// Execute the MySQL-Query: Insert the values into the tables
 	if(!mysqli_query($link,$query))

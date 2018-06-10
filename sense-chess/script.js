@@ -21,6 +21,18 @@ var SQUARESbestMOVE = {
     96:  "a2", 97:  "b2", 98:  "c2", 99:  "d2", 100: "e2", 101: "f2", 102: "g2", 103: "h2",
     112: "a1", 113: "b1", 114: "c1", 115: "d1", 116: "e1", 117: "f1", 118: "g1", 119: "h1"
 };
+
+var LEDfieldsPinArduino = {
+    8: "a8", 16: "b8", 24: "c8", 32: "d8", 40: "e8", 48: "f8", 56: "g8", 64: "h8", 
+    7: "a7", 15: "b7", 23: "c7", 31: "d7", 39: "e7", 47: "f7", 55: "g7", 63: "h7",
+    6: "a6", 14: "b6", 22: "c6", 30: "d6", 38: "e6", 46: "f6", 54: "g6", 62: "h6",
+    5: "a5", 13: "b5", 21: "c5", 29: "d5", 37: "e5", 45: "f5", 53: "g5", 61: "h5",
+    4: "a4", 12: "b4", 20: "c4", 28: "d4", 36: "e4", 44: "f4", 52: "g4", 60: "h4",
+    3: "a3", 11: "b3", 19: "c3", 27: "d3", 35: "e3", 43: "f3", 51: "g3", 59: "h3",
+    2: "a2", 10: "b2", 18: "c2", 26: "d2", 34: "e2", 42: "f2", 50: "g2", 58: "h2", 
+    1: "a1",  9: "b1", 17: "c1", 25: "d1", 33: "e1", 41: "f1", 49: "g1", 57: "h1"
+};
+
 var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
 var bestMoveAsString = "";
 var previousResponse = "";
@@ -117,23 +129,45 @@ function updateLatestEntry(){
 };
 
 var sendTestLEDDataToDatabase = function (){
-    var highlightTheseFields = "d2,d4,g8,h3,a2";
-    printLEDsToDatabase(highlightTheseFields);
+    var ledsOn = ["d3","h7","a1","e2","f5"];
+    printLEDsToDatabase(ledsOn);
 }
 
-var printLEDsToDatabase = function (fielder) {
-    var xhr = new XMLHttpRequest();
-    var url = "http://localhost/sense-chess/leds.php";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var json = JSON.parse(xhr.responseText);
-            console.log(json.fields);
-        }
-    };
-    var data = JSON.stringify({"fields": fielder});
-    xhr.send(data);
+var printLEDsToDatabase = function (field) {
+    var m = "";
+    var send = "";
+    for(var z = 0; z < field.length; z++){
+        Object.keys(LEDfieldsPinArduino).forEach(function(key) {
+            m = "nope";
+            if (String(LEDfieldsPinArduino[key]) === String(field[z])) {
+                m = String(key);
+                //console.log("m: " + m);
+            }
+            if(m === "nope"){
+                //console.log("nope");
+            }
+            else if(send == ""){
+                send = m;
+            }
+            else{
+                send = send + "," + m;
+            }
+        });       
+    }
+    if(send != ""){      
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost/sense-chess/leds.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.fields);
+            }
+        };
+        var data = JSON.stringify({"fields": send});
+        xhr.send(data);
+    }   
 }
 
 // returns the best move as string and highlighted pieces
