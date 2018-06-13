@@ -41,17 +41,6 @@ var previousResponse = "";
 // setInterval(updateLatestEntry, 5000);
 
 // functions we need for sense-chess
-
-
-
-
-
-
-
-
-
-
-
 var updateByCode = function() {
     var from = document.querySelector('#from').value;
     var to = document.querySelector('#to').value;

@@ -50,34 +50,29 @@ textarea {
 }
 
 .slider {
-    -webkit-appearance: none;
     width: 500px;
-    height: 15px;
-    border-radius: 5px;  
-    background: #ffffff;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
     margin: auto;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%; 
-    background: rgb(143, 143, 143);
-    cursor: pointer;
+#bar{
+	width:200px;
+	height:25px;
+	border:1px solid black;
+	position:relative;
 }
-
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: rgb(143, 143, 143);
-    cursor: pointer;
+#slider{
+	width:0%;
+	height:100%;
+	background-color:red;
+	top:0px;
+	left:0px;
+	position:absolute;
+	cursor:pointer;
+}
+#info{
+	width:200px;
+	height:25px;
+	border:1px solid black;	
 }
 
 @media handheld, only screen and (max-width:1040px){
