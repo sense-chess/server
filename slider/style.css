@@ -1,0 +1,117 @@
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700';
+
+/*
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Open Sans', sans-serif;
+*/
+
+* { font-family: 'Source Sans Pro', sans-serif; }
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+p {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+a {
+    color: #ffffcc;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+textarea {
+    background-color: #ffffff;
+    height: 3%;
+    width: 10%;
+}
+
+.board {
+    width: 500px;
+    margin: auto;
+}
+
+.info {
+    width: 500px;
+    margin: auto;
+    display: none;
+}
+
+.move-history {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 500px;
+    height: 15px;
+    border-radius: 5px;  
+    background: #ffffff;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin: auto;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: rgb(143, 143, 143);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgb(143, 143, 143);
+    cursor: pointer;
+}
+
+@media handheld, only screen and (max-width:1040px){
+    .board {
+        width: 90%;
+        margin: auto
+    }
+    
+    .info {
+        width: 90%;
+        margin: auto;
+    }
+    
+    .move-history {
+        max-height: 20%;
+        overflow-y: scroll;
+    } 
+
+    #bot {
+        width: 90%;
+        height: 150px;
+        margin: auto;
+    }
+
+    #reload{
+        display: none;
+    }
+    #back{
+        display: none;
+    }
+    #forward{
+        display: none;
+    }
+    #home{
+        display: none;
+    }   
+}
