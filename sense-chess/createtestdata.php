@@ -10,7 +10,7 @@
 	$data = json_decode(file_get_contents('php://input'), true);
 
 	// String for the MySQL-Query: Here we insert the values of the JSON-Variable
-	$query = "INSERT INTO `boardinput` (`field`, `millis`) VALUES ('d4', '1530077770652')";
+	$query = "INSERT INTO `boardinput` (`field`, `millis`) VALUES ('d4', '1127810106')";
 	$queryy = "INSERT INTO `correctmoves` (`source`, `target`) VALUES ('d2', 'd4')";
 	$queryyy = "INSERT INTO `leds` (`fields`) VALUES ('1,2,3,4,64')";
 
