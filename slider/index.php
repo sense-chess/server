@@ -29,9 +29,9 @@ if ($conn->connect_error) {
 <br><br><br>
     <div id="board" class="board"></div><br><br>
         <div class="slidecontainer">
-            <label for="rangeTimeline">Example range</label>
+            <label for="rangeTimeline">Timeline</label>
             <input type="range" class="custom-range" min="0" max="50" step="1" id="rangeTimeline" oninput="sliderOutputId.value = rangeTimeline.value">
-            <output name="sliderOutputName" id="sliderOutputId">24</output>
+            <output name="sliderOutputName" id="sliderOutputId">0</output>
         </div>
         <div class="info">
             Search depth:<select id="search-depth">

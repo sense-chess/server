@@ -49,30 +49,9 @@ textarea {
     overflow-y: scroll;
 }
 
-.slider {
+.slidecontainer {
     width: 500px;
     margin: auto;
-}
-
-#bar{
-	width:200px;
-	height:25px;
-	border:1px solid black;
-	position:relative;
-}
-#slider{
-	width:0%;
-	height:100%;
-	background-color:red;
-	top:0px;
-	left:0px;
-	position:absolute;
-	cursor:pointer;
-}
-#info{
-	width:200px;
-	height:25px;
-	border:1px solid black;	
 }
 
 @media handheld, only screen and (max-width:1040px){

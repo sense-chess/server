@@ -33,12 +33,39 @@ var LEDfieldsPinArduino = {
     1: "a1",  9: "b1", 17: "c1", 25: "d1", 33: "e1", 41: "f1", 49: "g1", 57: "h1"
 };
 
+var historyMoves = {
+    0: "NULL",   1: "b2,b4",  2: "g8,f6", 3: "c2,c3", 4: "b8,c6", 5: "b1,a3", 6: "c6,b4", 7: "a3,b1", 8: "b4,c6", 
+    9: "b1,a3", 10: "c6,b4", 11: "a3,b1", 12: "b4,c6", 13: "b1,a3", 14: "c6,b4", 15: "a3,b1", 16: "b4,c6",
+    17: "b1,a3", 18: "c6,b4", 19: "a3,b1", 20: "b4,c6", 21: "b1,a3", 22: "c6,b4", 23: "a3,b1", 24: "b4,c6",
+    25: "b1,a3", 26: "c6,b4", 27: "a3,b1", 28: "b4,c6", 29: "b1,a3", 30: "c6,b4", 31: "a3,b1", 32: "b4,c6",
+    33: "b1,a3", 34: "c6,b4", 35: "a3,b1", 36: "b4,c6", 37: "b1,a3", 38: "c6,b4", 39: "a3,b1", 40: "b4,c6",
+    41: "b1,a3", 42: "c6,b4", 43: "a3,b1", 44: "b4,c6", 45: "b1,a3", 46: "c6,b4", 47: "a3,b1", 48: "b4,c6",
+    49: "b1,a3", 50: "c6,b4"
+};
+
 var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
 var bestMoveAsString = "";
 var previousResponse = "";
 
 // update website in milliseconds
 // setInterval(updateLatestEntry, 5000);
+var readOutHistoryMoves = function(){
+    for(var m = 0; m < historyMoves.length();m++){
+        const splitString = String(historyMoves[m]).split(",");
+        var from = splitString[0];
+        var to = splitString[1];
+        if(!checkmove(from, to)){
+            console.log("wrong move");
+            return;
+        }
+        var move = game.move({
+            from: from,
+            to: to,
+            promotion: 'q'
+        });
+    }
+}
+
 
 // functions we need for sense-chess
 var updateByCode = function() {
