@@ -13,12 +13,9 @@
 </p>
 <h4 align="center">Usage</h4>
 <p  align="center">1. Set up an local server (we used <a href="https://www.apachefriends.org/de/index.html">xampp</a>).</p>  
-<p  align="center">2. Set up the local database. Please visit our <a href="https://github.com/sense-chess/database">database backup</a>).</p>  
-<p  align="center">3. Set up our used user on local server: <br>
-<code  align="center">grant all privileges on chess.* to 'php'@'localhost'  identified by 'php2000';<br>
-flush privileges;</code></p>
-<p  align="center">4. Copy this repository into ../xampp/htdocs  (path depends on OS).</p>
-<p  align="center">5. Delete the already existing index.php in htdocs to use our index.html</p>  
+<p  align="center">2. Set up the local database. Please visit our <a href="https://github.com/sense-chess/database">sense-chess database</a>).</p>  
+<p  align="center">3. Copy this repository into ../xampp/htdocs  (path depends on OS).</p>
+<p  align="center">4. Delete the already existing index.php in htdocs to use our index.html</p>  
 <br>
 <h4 align="center">Attribution</h4>
 <p align="center">
