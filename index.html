@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>sense-chess</title>
+		<meta charset="UTF-8">
+		<meta name="author" content="Jan Schneider">
+		<meta name="description" content="sense-chess is a project by Marcus Schoch and Jan Schneider with Prof. Michael Schuster and Benjamin Thomsen at HfG Schwäbisch Gmünd.">
+		<link rel="shortcut icon" href="sense-chess.png">
+		<link rel="icon" type="image/png" href="sense-chess.svg">
+		<link rel="image_src" href="sense-chess.svg" />
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+		<style type="text/css">
+
+    	* { font-family: 'Source Sans Pro', sans-serif; }
+
+		body { 
+			font-family: Verdana, Arial, sans-serif;
+			margin: 2em;
+			margin-left: 20%; 
+			font-size: 100%;
+			-webkit-hyphens: auto;
+			-moz-hyphens: auto;
+			-ms-hyphens: auto;
+			hyphens: auto; 
+			background-color: #000000;
+			background: url(background.svg);
+			background-size: cover;
+		}
+
+		p { 
+			max-width: 50em;	
+			font-size: 1.2em;
+			line-height: 1.5em;
+			margin-left: 2%;
+			color: #ffffff;
+		}
+
+		a {
+			color: #ffffcc;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+
+		h1 {
+			margin-bottom: 5%;
+			font-weight: bold;
+			font-size: 5em;
+			color: #ffffff;
+		}
+
+		h2 {
+			font-weight: bold;
+			font-size: 2.7em;
+			margin-left: 0%;
+			margin-top: 5%;
+			margin-bottom: 0%;
+			color: #ffffff;
+		}
+
+		h3 {
+			font-weight: bold;
+			margin-left: 0%;
+			font-size: 2.2em;
+			margin-top: 3%;
+			color: #ffffff;
+		}
+		img {
+			width: 10%;
+			height: auto;
+		}
+		#reload {
+			height: 5%;
+			width: auto;    
+			background: none; 
+			opacity: 1;  
+			border-radius: 5%;
+			-webkit-transition: 0.5s;
+			-moz-transition:0.5s;
+			transition: 0.5s; 
+			position: fixed;       
+			left: 1%;
+			top: 2%;
+			z-index: 10;
+			padding:0.2%;   
+			margin-right:1%; 
+			transform-style: flat;
+			font-size: 1.47rem;
+		}
+		#reload:hover{
+			transform: scale(1.1);   
+		}
+		#back {
+			height: 5%;
+			width: auto;    
+			background: none; 
+			opacity: 1;  
+			border-radius: 5%;
+			-webkit-transition: 0.5s;
+			-moz-transition:0.5s;
+			transition: 0.5s; 
+			position: fixed;       
+			left: 1%;
+			bottom: 2%;
+			z-index: 10;
+			padding:0.2%;   
+			margin-right:1%; 
+			transform-style: flat;
+			font-size: 1.47rem;
+		}
+		#back:hover{
+			transform: scale(1.1);   
+		}
+		#forward {
+			height: 5%;
+			width: auto;    
+			background: none; 
+			opacity: 1;  
+			border-radius: 5%;
+			-webkit-transition: 0.5s;
+			-moz-transition:0.5s;
+			transition: 0.5s; 
+			position: fixed;       
+			right: 1%;
+			bottom: 2%;
+			z-index: 10;
+			padding:0.2%;   
+			margin-right:1%; 
+			transform-style: flat;
+			font-size: 1.47rem;
+		}
+		#forward:hover{
+			transform: scale(1.1);   
+		}
+
+		@media handheld, only screen and (max-width: 1000px){
+			
+			body { 
+				margin-left: 2%; 
+			}
+
+			p { 
+				font-size: 2.5em;
+				line-height: 1.4em;
+			}
+
+			h1 {
+			margin-top: 2%;
+			font-weight: bold;
+			font-size: 4.5em;
+			}
+
+			h2 {
+			margin-top: 2%;
+			font-weight: bold;
+			font-size: 3.2em;
+			}
+
+			h3 {
+			margin-top: 2%;
+			font-weight: bold;
+			font-size: 3.2em;
+			}
+			#reload{
+				display: none;
+			}
+			#back{
+				display: none;
+			}
+			#forward{
+				display: none;
+			}
+
+			#nomobile{
+				display: none;
+			}
+
+			img {
+			width: 50%;
+			height: auto;
+		}
+		}	
+
+		</style>
+
+	</head>
+
+<body>
+
+
+<h1>sense-chess by <br> Marcus Schoch & Jan Schneider</h1>
+
+
+<h2><a href="https://github.com/sense-chess">GitHub</a></h2>
+
+
+<p>sense-chess is a project at HfG Schwäbisch Gmünd by Marcus Schoch and Jan Schneider with Prof. Michael Schuster and Benjamin Thomsen in the third semester, the summer semester 2018.</p>
+
+<p><a href="/sense-chess/">sense-chess</a></p>
+
+<p><a href="/slider/">slider</a></p>
+
+<p><a href="/database/">view database</a></p>
+
+<p><a href="/playonlinewithhelp/">play online chess with help of an ai against an ai</a></p>
+
+<p><a href="/playonlinewithcode/">playground for testing our newest code</a></p>
+
+<p><a href="/sendtoserial">send to serial only by php</a></p>
+
+<div id="reload">
+	<a href=""><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+   <g id="_xD83D__xDD04_">	   
+		   <path fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		   M20.8,30.4l-3.7,4.1c0.7-7.7,5.6-14.4,13-17c2.1-0.8,4.4-1.2,6.6-1.2c5.5,0,10.8,2.4,14.5,6.5l0.6,0.7l3.9-3.6L55,19.2
+		   C50.3,14,43.6,11,36.6,11c-2.8,0-5.7,0.5-8.4,1.5c-9.2,3.3-15.6,11.8-16.4,21.6l-3.3-3.6l-3.3,3.1L14.7,44l9.5-10.4L20.8,30.4z"/>	   
+		   <path fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		   M67,38.3l-9.5-10.5l-9.5,10.4l3.3,3.1l3.7-4.1c-0.6,7.7-5.6,14.4-13,17.1c-2.1,0.8-4.4,1.2-6.6,1.2c-5.5,0-10.8-2.4-14.5-6.5
+		   l-0.6-0.7l-3.9,3.6l0.6,0.7C21.9,58,28.6,61,35.6,61c2.8,0,5.7-0.5,8.4-1.5c9.2-3.4,15.6-11.9,16.4-21.7l3.3,3.7L67,38.3z"/>
+   </g></svg></a>
+</div>
+<div id="back">
+	<a href="https://jan-patrick.de"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+   <polygon id="_x2B05__xFE0F_" fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+	   22.8,51.5 5,35 22.8,18.5 26.6,22.6 16.2,32.3 67,32.3 67,37.8 16.2,37.8 26.6,47.5 "/>
+   </svg></a>
+</div>
+<div id="forward">
+	<a href="https://jan-patrick.de/sense-chess/database"><svg version="1.1" id="emoji" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100%" width="auto" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+   <polygon id="_x27A1__xFE0F_" fill="#3F3F3F" stroke="#1D1D1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+	   49.2,51.5 67,35 49.2,18.5 45.4,22.6 55.8,32.3 5,32.3 5,37.8 55.8,37.8 45.4,47.5 "/>
+   </svg></a>
+</div>
+</body></html>
