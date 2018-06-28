@@ -55,6 +55,32 @@ var status = 0;
 setInterval(updateLatestEntry, 5000);
 
 // functions we need for sense-chess
+
+var interpretIncomingData = function(receivedField, status)
+{
+    switch(status){
+        // show all valid moves of the touched piece
+        case 1:
+            // show all valid moves of the touched piece
+            break;
+        // show best move of touched piece
+        case 2:
+            bestMoveOfActualPosition(receivedField);
+            break;
+        // show a piece that can make a better move than the touched one
+        case 3:
+            // view a piece that can make a better move (one field)
+            break;
+        // show a piece that can make a better move than the touched one
+        case 4:
+            showBestMove();
+            break;
+        default:
+            console.log("something went wrong");
+            break;
+    }
+}
+
 var updateByCode = function() {
     var from = document.querySelector('#from').value;
     var to = document.querySelector('#to').value;
@@ -198,13 +224,10 @@ var showBestMove = function () {
     var bestMove = findBestMove(game);
     var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
     var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
-    var piece = PLAYERbestMOVE[(Object.entries(bestMove).slice(4,5).map(entry => entry[1])).toString()];
-    console.log(from);
-    console.log(to);
-    console.log(piece);
+    //var piece = PLAYERbestMOVE[(Object.entries(bestMove).slice(4,5).map(entry => entry[1])).toString()];
     var square = [from, to];
-    highlightSquares(square);
-    bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
+    saveLEDs(square);
+    //bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
 
 var bestMoveOfActualPosition = function(oneField)
