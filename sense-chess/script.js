@@ -179,7 +179,8 @@ var showBestMove = function () {
     console.log(from);
     console.log(to);
     console.log(piece);
-    highlightSquares(from, to);
+    var square = [from, to];
+    highlightSquares(square);
     bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
 
@@ -272,18 +273,18 @@ var findBestMove = function (game) {
 };
 
 // highlight two pieces
-var highlightSquares = function(from, to) {
-    var squareFrom = $('#board .square-' + from);
-    var squareTo = $('#board .square-' + to);
-
-    var backgroundF = backgroundT = '#aaf7e8';
-    if (squareFrom.hasClass('black-3c85d') === true) {
-        backgroundF = '#5d8c83';
-    } else if(squareTo.hasClass('black-3c85d') === true) {
-        backgroundT = '#5d8c83';
+var highlightSquares = function(fields)
+{
+    for(var z = 0; z < fields.length; z++)
+    {
+        var square = $('#board .square-' + fields[z]);
+        var backgroundF = backgroundT = '#aaf7e8';
+        if (square.hasClass('black-3c85d') === true)
+        {
+            backgroundF = '#5d8c83';
+        }
+        square.css('background', backgroundF);
     }
-    squareFrom.css('background', backgroundF);
-    squareTo.css('background', backgroundT);
 };
 
 /*
