@@ -51,6 +51,8 @@ var previousResponse = "";
 var fieldFromArduino = "";
 var status = 0;
 
+var ledPinsToHighlight = [];
+
 // update website in milliseconds
 setInterval(updateLatestEntry, 5000);
 
@@ -58,6 +60,7 @@ setInterval(updateLatestEntry, 5000);
 
 var interpretIncomingData = function(receivedField, status)
 {
+    removeGreySquares();
     switch(status){
         // show all valid moves of the touched piece
         case 1:
@@ -65,20 +68,22 @@ var interpretIncomingData = function(receivedField, status)
             break;
         // show best move of touched piece
         case 2:
-            bestMoveOfActualPosition(receivedField);
+            ledPinsToHighlight = bestMoveOfActualPosition(receivedField);
             break;
         // show a piece that can make a better move than the touched one
         case 3:
-            // view a piece that can make a better move (one field)
+            ledPinsToHighlight = showBestMoveTo();
             break;
         // show a piece that can make a better move than the touched one
         case 4:
-            showBestMove();
+            ledPinsToHighlight = showBestMoveToFrom();
             break;
         default:
+            ledPinsToHighlight = ["nope"];
             console.log("something went wrong");
             break;
     }
+    saveLEDs(ledPinsToHighlight);
 }
 
 var updateByCode = function() {
@@ -219,15 +224,32 @@ var printLEDsToDatabase = function (field) {
     }   
 }
 
+var showBestMoveTo = function ()
+{
+    var bestMove = findBestMove(game);
+    var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
+    var square = [from];
+    return square;
+};
+
+var showBestMoveToFrom = function ()
+{
+    var bestMove = findBestMove(game);
+    var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
+    var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
+    var square = [from, to];
+    return square;
+};
+
 // returns the best move as string and highlighted pieces
 var showBestMove = function () {
     var bestMove = findBestMove(game);
     var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
     var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
-    //var piece = PLAYERbestMOVE[(Object.entries(bestMove).slice(4,5).map(entry => entry[1])).toString()];
+    var piece = PLAYERbestMOVE[(Object.entries(bestMove).slice(4,5).map(entry => entry[1])).toString()];
     var square = [from, to];
     saveLEDs(square);
-    //bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
+    bestMoveAsString = "Move the " + piece + " from " + from + " to " + to + ".";
 };
 
 var bestMoveOfActualPosition = function(oneField)
@@ -248,13 +270,13 @@ var bestMoveOfActualPosition = function(oneField)
         if(uglyMoves[gop].from == f)
         {
             var square = [SQUARESbestMOVE[uglyMoves[gop].from],SQUARESbestMOVE[uglyMoves[gop].to]];
-            saveLEDs(square);
-            found = true;
+            return square;
         }
         gop++;
     }
     if(!found){
-        console.log("No piece found on " +oneField+ " or it's not the colors turn right now.");
+        var nopenop = ["nope"];
+        return nopenop;
     }
 }
 
@@ -292,39 +314,6 @@ var deleteEverythingFromEveryDatabase = function () {
         xhr.send(data);
     }    
 }
-
-// event listener for show best move notification
-document.querySelector('#notificationbutton').addEventListener('click', ev => {
-    ev.preventDefault();
-	if (!('Notification' in window)) {
-		throw new Error('This browser does not support notifications.');
-		return;
-	}
-	const ask = Notification.requestPermission(permission => {
-		if (permission !== 'granted') {
-			alert('Please allow browser notifications!');
-			return;
-        }
-        showBestMove();
-		const txt = bestMoveAsString;
-		if (txt.match(/^\W*$/)) {
-			alert('Something went wrong in showBestMove function');
-			return;
-		}
-		setTimeout(() => {
-			const msg = new Notification('sense-chess HELP', {
-				body: txt,
-				lang: 'en',
-				icon: '../sense-chess.svg',
-				image: '../sense-chess.svg'
-			});
-			msg.onclick = ev => alert('You clicked the sense-chess notification!');
-			msg.onerror = err => console.error(err);
-			msg.onshow = ev => console.info(ev);
-			msg.onclose = ev => console.info(ev);
-		}, 1000);
-	});
-});
 
 var findBestMove = function (game) {
     if (game.game_over()) {

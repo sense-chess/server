@@ -72,12 +72,13 @@ if("callingPhpFunction" == $action) {
             <textarea id="from"></textarea> to <textarea id="to"></textarea>
 		    <button onclick="updateByCode()">move</button>
             </form>
-            <button id="notificationbutton">best move Notification</button>
             <br>
+            <button onclick="interpretIncomingData('d7',2)">test best move from position d7</button>
+            <button onclick="interpretIncomingData('hfg',3)">show best piece</button>
+            <button onclick="interpretIncomingData('hfg',4)">show best move</button>
             <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
             <button onclick="deleteEverythingFromEveryDatabase()">! delete EVERY data from database !</button>
             <button onclick="createTestDataInEveryTable()">create test data in every table</button>
-            <button onclick="bestMoveOfActualPosition('d7')">test best move from position g7</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>
