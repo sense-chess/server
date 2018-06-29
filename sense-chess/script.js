@@ -33,6 +33,17 @@ var SQUARESbestMOVEinvert = {
     a1: 112, b1: 113, c1: 114, d1: 115, e1: 116, f1: 117, g1: 118, h1: 119
 };
 
+var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
+var bestMoveAsString = "";
+var previousResponse = "";
+
+// variables for LEDs
+var ledPinsToHighlight = [];
+var ledFrom = "";
+var ledTo = "";
+var ledThisPieceFromTo = [];
+var ledValidMoves = [];
+var lastLEDfield = "mj";
 var LEDfieldsPinArduino = {
     8: "a8", 16: "b8", 24: "c8", 32: "d8", 40: "e8", 48: "f8", 56: "g8", 64: "h8", 
     7: "a7", 15: "b7", 23: "c7", 31: "d7", 39: "e7", 47: "f7", 55: "g7", 63: "h7",
@@ -44,33 +55,27 @@ var LEDfieldsPinArduino = {
     1: "a1",  9: "b1", 17: "c1", 25: "d1", 33: "e1", 41: "f1", 49: "g1", 57: "h1"
 };
 
-var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
-var bestMoveAsString = "";
-var previousResponse = "";
-
-var ledPinsToHighlight = [];
-var ledFrom = "";
-var ledTo = "";
-var ledThisPieceFromTo = [];
-var lastLEDfield = "mj";
-
 // update website in milliseconds
 setInterval(updateLatestEntry, 5000);
 
-// functions we need for sense-chess
+///////////////////////////////////////
+// functions we need for sense-chess //
+///////////////////////////////////////
 
+// interprets and works with the data coming out of the boardinput database
 var interpretIncomingData = function(receivedField, status)
 {
     removeGreySquares();
     if(lastLEDfield != receivedField)
     {
+        getValidMoves(receivedField);
         getBestMoveVariables(receivedField);
         lastLEDfield = receivedField;
     }
     switch(status){
         // show all valid moves of the touched piece
         case 1:
-            // show all valid moves of the touched piece
+            ledPinsToHighlight = ledValidMoves;
             break;
         // show best move of touched piece
         case 2:
@@ -228,6 +233,20 @@ var printLEDsToDatabase = function (field) {
         var data = JSON.stringify({"fields": send});
         xhr.send(data);
     }   
+}
+
+var getValidMoves = function (oneField)
+{
+    var valMoves = game.moves({
+        square: oneField,
+        verbose: true
+    });
+    var vmoves = [oneField];
+    for(var lolli = 0; lolli < valMoves.length; lolli++)
+    {
+        vmoves.push(valMoves[lolli].to);
+    }
+    ledValidMoves = vmoves;
 }
 
 var getBestMoveVariables = function (oneField)
