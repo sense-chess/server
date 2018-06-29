@@ -75,7 +75,14 @@ var interpretIncomingData = function(receivedField, status)
     switch(status){
         // show all valid moves of the touched piece
         case 1:
-            ledPinsToHighlight = ledValidMoves;
+            if(ledValidMoves != "noField")
+            {
+                ledPinsToHighlight = ledValidMoves;
+            }
+            else
+            {
+                ledPinsToHighlight = "nope";
+            }
             break;
         // show best move of touched piece
         case 2:
@@ -201,23 +208,30 @@ var saveLEDs = function(fields)
 var printLEDsToDatabase = function (field) {
     var m = "";
     var send = "";
-    for(var z = 0; z < field.length; z++){
-        Object.keys(LEDfieldsPinArduino).forEach(function(key) {
-            m = "nope";
-            if (String(LEDfieldsPinArduino[key]) === String(field[z])) {
-                m = String(key);
-                //console.log("m: " + m);
-            }
-            if(m === "nope"){
-                //console.log("nope");
-            }
-            else if(send == ""){
-                send = m;
-            }
-            else{
-                send = send + "," + m;
-            }
-        });       
+    if(!String(field[0])==="nope")
+    {
+        for(var z = 0; z < field.length; z++){
+            Object.keys(LEDfieldsPinArduino).forEach(function(key) {
+                m = "nope";
+                if (String(LEDfieldsPinArduino[key]) === String(field[z])) {
+                    m = String(key);
+                    //console.log("m: " + m);
+                }
+                if(m === "nope"){
+                    console.log("nope");
+                }
+                else if(send == ""){
+                    send = m;
+                }
+                else{
+                    send = send + "," + m;
+                }
+            });       
+        }
+    }
+    else
+    {
+        send = "-1";
     }
     if(send != ""){      
         var xhr = new XMLHttpRequest();
@@ -242,11 +256,18 @@ var getValidMoves = function (oneField)
         verbose: true
     });
     var vmoves = [oneField];
-    for(var lolli = 0; lolli < valMoves.length; lolli++)
+    if(valMoves.length >0)
     {
-        vmoves.push(valMoves[lolli].to);
+        for(var lolli = 0; lolli < valMoves.length; lolli++)
+        {
+            vmoves.push(valMoves[lolli].to);
+        }
+        ledValidMoves = vmoves;
     }
-    ledValidMoves = vmoves;
+    else
+    {
+        ledValidMoves = "noField";
+    }
 }
 
 var getBestMoveVariables = function (oneField)
