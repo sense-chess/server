@@ -202,6 +202,11 @@ function updateLatestEntry(){
     
 };
 
+var sendAllLEDsOffToDatabase = function()
+{
+    var ledsOff = ["nope"];
+    printLEDsToDatabase(ledsOff);
+}
 var sendTestLEDDataToDatabase = function (){
     var ledsOn = ["d3","h7","a1","e2","f5"];
     printLEDsToDatabase(ledsOn);
