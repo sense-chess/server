@@ -163,8 +163,7 @@ var checkmove = function(from, to) {
         }
     });
     if(!f || !t) {
-        alert("wrong input");
-        return;
+        return false;
     }
     var checkedmove = game.check_move({
         from: from,
@@ -218,18 +217,15 @@ var printLEDsToDatabase = function (field)
 {
     var m = "";
     var send = "";
-    if(!String(field[0])==="nope")
+    var found = false;
+    for(var z = 0; z < field.length; z++)
     {
-        for(var z = 0; z < field.length; z++)
+        Object.keys(LEDfieldsPinArduino).forEach(function(key)
         {
-            Object.keys(LEDfieldsPinArduino).forEach(function(key)
+            m = "-1";
+            if (String(LEDfieldsPinArduino[key]).valueOf() == String(field[z]).valueOf())
             {
-                m = "nope";
-                if (String(LEDfieldsPinArduino[key]) === String(field[z]))
-                {
-                    m = String(key);
-                    //console.log("m: " + m);
-                }
+                m = String(key);
                 if(send == "")
                 {
                     send = m;
@@ -238,10 +234,11 @@ var printLEDsToDatabase = function (field)
                 {
                     send = send + "," + m;
                 }
-            });       
-        }
+                found = true;
+            }
+        });       
     }
-    else
+    if(!found)
     {
         send = "-1";
     }
