@@ -48,10 +48,11 @@ var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen
 var bestMoveAsString = "";
 var previousResponse = "";
 
-var fieldFromArduino = "";
-var status = 0;
-
 var ledPinsToHighlight = [];
+var ledFrom = "";
+var ledTo = "";
+var ledThisPieceFromTo = [];
+var lastLEDfield = "mj";
 
 // update website in milliseconds
 setInterval(updateLatestEntry, 5000);
@@ -61,6 +62,11 @@ setInterval(updateLatestEntry, 5000);
 var interpretIncomingData = function(receivedField, status)
 {
     removeGreySquares();
+    if(lastLEDfield != receivedField)
+    {
+        getBestMoveVariables();
+        lastLEDfield = receivedField;
+    }
     switch(status){
         // show all valid moves of the touched piece
         case 1:
@@ -72,11 +78,11 @@ var interpretIncomingData = function(receivedField, status)
             break;
         // show a piece that can make a better move than the touched one
         case 3:
-            ledPinsToHighlight = showBestMoveTo();
+            ledPinsToHighlight = [ledFrom];
             break;
         // show a piece that can make a better move than the touched one
         case 4:
-            ledPinsToHighlight = showBestMoveToFrom();
+            ledPinsToHighlight = [ledFrom, ledTo];
             break;
         default:
             ledPinsToHighlight = ["nope"];
@@ -232,11 +238,11 @@ var showBestMoveTo = function ()
     return square;
 };
 
-var showBestMoveToFrom = function ()
+var getBestMoveVariables = function ()
 {
     var bestMove = findBestMove(game);
-    var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
-    var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
+    ledFrom = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
+    ledTo = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
     var square = [from, to];
     return square;
 };
