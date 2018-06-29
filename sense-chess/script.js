@@ -66,42 +66,51 @@ setInterval(updateLatestEntry, 5000);
 var interpretIncomingData = function(receivedField, status)
 {
     removeGreySquares();
-    if(lastLEDfield != receivedField)
+    if(!checkmove(lastLEDfield, receivedField))
     {
-        getValidMoves(receivedField);
-        getBestMoveVariables(receivedField);
-        lastLEDfield = receivedField;
-    }
-    switch(status){
-        // show all valid moves of the touched piece
-        case 1:
-            if(ledValidMoves != "noField")
-            {
+        if(lastLEDfield != receivedField)
+        {
+            getValidMoves(receivedField);
+            getBestMoveVariables(receivedField);
+            lastLEDfield = receivedField;
+        }
+        switch(status){
+            // show all valid moves of the touched piece
+            case 1:
                 ledPinsToHighlight = ledValidMoves;
-            }
-            else
-            {
-                ledPinsToHighlight = "nope";
-            }
-            break;
-        // show best move of touched piece
-        case 2:
-            ledPinsToHighlight = ledThisPieceFromTo;
-            break;
-        // show a piece that can make a better move than the touched one
-        case 3:
-            ledPinsToHighlight = [ledFrom];
-            break;
-        // show a piece that can make a better move than the touched one
-        case 4:
-            ledPinsToHighlight = [ledFrom, ledTo];
-            break;
-        default:
-            ledPinsToHighlight = ["nope"];
-            console.log("something went wrong");
-            break;
+                break;
+            // show best move of touched piece
+            case 2:
+                ledPinsToHighlight = ledThisPieceFromTo;
+                break;
+            // show a piece that can make a better move than the touched one
+            case 3:
+                ledPinsToHighlight = [ledFrom];
+                break;
+            // show a piece that can make a better move than the touched one
+            case 4:
+                ledPinsToHighlight = [ledFrom, ledTo];
+                break;
+            default:
+                ledPinsToHighlight = ["nope"];
+                console.log("something went wrong");
+                break;
+        }
+        saveLEDs(ledPinsToHighlight);
     }
-    saveLEDs(ledPinsToHighlight);
+    else
+    {
+        var move = game.move({
+            from: lastLEDfield,
+            to: receivedField,
+            promotion: 'q'
+        });
+        if (move === null) {
+            return 'snapback';
+        }
+        renderMoveHistory(game.history());
+        board.position(game.fen());
+    }
 }
 
 var updateByCode = function() {
@@ -205,25 +214,28 @@ var saveLEDs = function(fields)
     highlightSquares(fields);
 }
 
-var printLEDsToDatabase = function (field) {
+var printLEDsToDatabase = function (field)
+{
     var m = "";
     var send = "";
     if(!String(field[0])==="nope")
     {
-        for(var z = 0; z < field.length; z++){
-            Object.keys(LEDfieldsPinArduino).forEach(function(key) {
+        for(var z = 0; z < field.length; z++)
+        {
+            Object.keys(LEDfieldsPinArduino).forEach(function(key)
+            {
                 m = "nope";
-                if (String(LEDfieldsPinArduino[key]) === String(field[z])) {
+                if (String(LEDfieldsPinArduino[key]) === String(field[z]))
+                {
                     m = String(key);
                     //console.log("m: " + m);
                 }
-                if(m === "nope"){
-                    console.log("nope");
-                }
-                else if(send == ""){
+                if(send == "")
+                {
                     send = m;
                 }
-                else{
+                else
+                {
                     send = send + "," + m;
                 }
             });       
@@ -233,13 +245,16 @@ var printLEDsToDatabase = function (field) {
     {
         send = "-1";
     }
-    if(send != ""){      
+    if(send != "")
+    {      
         var xhr = new XMLHttpRequest();
         var url = "http://localhost/sense-chess/leds.php";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
                 var json = JSON.parse(xhr.responseText);
                 console.log(json.fields);
             }
@@ -266,7 +281,7 @@ var getValidMoves = function (oneField)
     }
     else
     {
-        ledValidMoves = "noField";
+        ledValidMoves = ["nope"];
     }
 }
 
