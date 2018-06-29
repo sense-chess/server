@@ -64,7 +64,7 @@ var interpretIncomingData = function(receivedField, status)
     removeGreySquares();
     if(lastLEDfield != receivedField)
     {
-        getBestMoveVariables();
+        getBestMoveVariables(receivedField);
         lastLEDfield = receivedField;
     }
     switch(status){
@@ -74,7 +74,7 @@ var interpretIncomingData = function(receivedField, status)
             break;
         // show best move of touched piece
         case 2:
-            ledPinsToHighlight = bestMoveOfActualPosition(receivedField);
+            ledPinsToHighlight = ledThisPieceFromTo;
             break;
         // show a piece that can make a better move than the touched one
         case 3:
@@ -230,21 +230,34 @@ var printLEDsToDatabase = function (field) {
     }   
 }
 
-var showBestMoveTo = function ()
+var getBestMoveVariables = function (oneField)
 {
-    var bestMove = findBestMove(game);
-    var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
-    var square = [from];
-    return square;
-};
-
-var getBestMoveVariables = function ()
-{
-    var bestMove = findBestMove(game);
+    var f = 0;
+    Object.keys(SQUARESbestMOVE).forEach(function(key)
+    {
+        if (SQUARESbestMOVE[key] == oneField)
+        {
+            f = SQUARESbestMOVEinvert[oneField];
+        }
+    });
+    var uglyMoves = game.ugly_moves()
+    var found = false;
+    var gop = 0;
+    while(!found && gop < uglyMoves.length)
+    {
+        if(uglyMoves[gop].from == f)
+        {
+            ledThisPieceFromTo = [SQUARESbestMOVE[uglyMoves[gop].from],SQUARESbestMOVE[uglyMoves[gop].to]];
+            found = true;
+        }
+        gop++;
+    }
+    if(!found){
+        ledThisPieceFromTo = ["nope"];
+    }
+    var bestMove = minimaxRoot(2, game, true);
     ledFrom = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
     ledTo = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
-    var square = [from, to];
-    return square;
 };
 
 // returns the best move as string and highlighted pieces

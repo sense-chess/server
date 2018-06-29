@@ -73,9 +73,9 @@ if("callingPhpFunction" == $action) {
 		    <button onclick="updateByCode()">move</button>
             </form>
             <br>
-            <button onclick="interpretIncomingData('d7',2)">test best move from position d7</button>
-            <button onclick="interpretIncomingData('hfg',3)">show best piece</button>
-            <button onclick="interpretIncomingData('hfg',4)">show best move</button>
+            <button onclick="interpretIncomingData('d7',2)">d7 status 2</button>
+            <button onclick="interpretIncomingData('d7',3)">d7 status 3</button>
+            <button onclick="interpretIncomingData('d7',4)">d7 status 4</button>
             <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
             <button onclick="deleteEverythingFromEveryDatabase()">! delete EVERY data from database !</button>
             <button onclick="createTestDataInEveryTable()">create test data in every table</button>
