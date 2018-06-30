@@ -261,7 +261,7 @@ var printLEDsToDatabase = function (field)
                 console.log(json.fields);
             }
         };
-        var data = JSON.stringify({"fields": send});
+        var data = JSON.stringify({"fields": "<"+send+">"});
         xhr.send(data);
     }   
 }
