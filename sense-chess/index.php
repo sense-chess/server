@@ -73,11 +73,8 @@ if("callingPhpFunction" == $action) {
 		    <button onclick="updateByCode()">move</button>
             </form>
             <br>
-            <button onclick="interpretIncomingData('d7',1)">d7 status 1</button>
-            <button onclick="interpretIncomingData('d7',2)">d7 status 2</button>
-            <button onclick="interpretIncomingData('d7',3)">d7 status 3</button>
-            <button onclick="interpretIncomingData('d7',4)">d7 status 4</button>
-            <button onclick="interpretIncomingData('d4',1)">d4 status 1</button>
+            <button onclick="interpretIncomingData('d7')">d7 next status</button>
+            <button onclick="interpretIncomingData('d4')">d4 next status</button>
             <button onclick="testMove()">test move d7-d6</button>
             <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
             <button onclick="sendAllLEDsOffToDatabase()">LEDs Off in Database</button>

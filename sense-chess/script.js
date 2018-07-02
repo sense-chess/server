@@ -44,6 +44,7 @@ var ledTo = "";
 var ledThisPieceFromTo = [];
 var ledValidMoves = [];
 var lastLEDfield = "mj";
+var ledStatus = 0;
 var LEDfieldsPinArduino = {
     7: "a8",  8: "b8", 23: "c8", 24: "d8", 39: "e8", 40: "f8", 55: "g8", 56: "h8", 
     6: "a7",  9: "b7", 22: "c7", 25: "d7", 38: "e7", 41: "f7", 54: "g7", 57: "h7",
@@ -63,36 +64,47 @@ setInterval(updateLatestEntry, 5000);
 ///////////////////////////////////////
 
 // interprets and works with the data coming out of the boardinput database
-var interpretIncomingData = function(receivedField, status)
+var interpretIncomingData = function(receivedField)
 {
     removeGreySquares();
     if(!checkmove(lastLEDfield, receivedField))
     {
         if(lastLEDfield != receivedField)
         {
+            ledStatus = 0;
             getValidMoves(receivedField);
             getBestMoveVariables(receivedField);
             lastLEDfield = receivedField;
         }
-        switch(status){
+        switch(ledStatus){
             // show all valid moves of the touched piece
+            case 0:
+                ledPinsToHighlight = [receivedField];
+                ledStatus++;
+                break;
             case 1:
                 ledPinsToHighlight = ledValidMoves;
+                ledStatus++;
                 break;
             // show best move of touched piece
             case 2:
                 ledPinsToHighlight = ledThisPieceFromTo;
+                ledStatus++;
                 break;
             // show a piece that can make a better move than the touched one
             case 3:
                 ledPinsToHighlight = [ledFrom];
+                ledStatus++;
                 break;
             // show a piece that can make a better move than the touched one
             case 4:
                 ledPinsToHighlight = [ledFrom, ledTo];
+                ledStatus++;
                 break;
             default:
                 ledPinsToHighlight = ["nope"];
+                console.log("wrong status: "+ledStatus);
+                ledStatus = 0;
                 break;
         }
         saveLEDs(ledPinsToHighlight);
@@ -104,9 +116,9 @@ var interpretIncomingData = function(receivedField, status)
 }
 
 var testMove = function(){
-    interpretIncomingData('d7',0);
+    interpretIncomingData('d7');
     sleep(1000);
-    interpretIncomingData('d6',0);
+    interpretIncomingData('d6');
 }
 
 var updateByCode = function() {
