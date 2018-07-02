@@ -93,7 +93,6 @@ var interpretIncomingData = function(receivedField, status)
                 break;
             default:
                 ledPinsToHighlight = ["nope"];
-                console.log("something went wrong");
                 break;
         }
         saveLEDs(ledPinsToHighlight);
@@ -111,6 +110,12 @@ var interpretIncomingData = function(receivedField, status)
         renderMoveHistory(game.history());
         board.position(game.fen());
     }
+}
+
+var testMove = function(){
+    interpretIncomingData('d7',0);
+    sleep(1000);
+    interpretIncomingData('d6',0);
 }
 
 var updateByCode = function() {
@@ -152,6 +157,15 @@ var updateByDatabase = function(source, target) {
     renderMoveHistory(game.history());
     board.position(game.fen());
 };
+
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  }
 
 var checkmove = function(from, to) {
     var f = t = false;
@@ -262,6 +276,31 @@ var printLEDsToDatabase = function (field)
             }
         };
         var data = JSON.stringify({"fields": "<"+send+">"});
+        xhr.send(data);
+    }   
+}
+
+var printMoveDatabase = function (from, to)
+{
+    if(!found)
+    {
+        send = "-1";
+    }
+    if(send != "")
+    {      
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost/sense-chess/leds.php";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json.fields);
+            }
+        };
+        var data = JSON.stringify({"": from+","+to});
         xhr.send(data);
     }   
 }
