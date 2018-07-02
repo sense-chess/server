@@ -99,16 +99,7 @@ var interpretIncomingData = function(receivedField, status)
     }
     else
     {
-        var move = game.move({
-            from: lastLEDfield,
-            to: receivedField,
-            promotion: 'q'
-        });
-        if (move === null) {
-            return 'snapback';
-        }
-        renderMoveHistory(game.history());
-        board.position(game.fen());
+        printMoveDatabase(lastLEDfield, receivedField);
     }
 }
 
@@ -281,28 +272,22 @@ var printLEDsToDatabase = function (field)
 }
 
 var printMoveDatabase = function (from, to)
-{
-    if(!found)
+{    
+    updateByDatabase(from, to);
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost/sense-chess/validmoves.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function ()
     {
-        send = "-1";
-    }
-    if(send != "")
-    {      
-        var xhr = new XMLHttpRequest();
-        var url = "http://localhost/sense-chess/leds.php";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function ()
+        if (xhr.readyState === 4 && xhr.status === 200)
         {
-            if (xhr.readyState === 4 && xhr.status === 200)
-            {
-                var json = JSON.parse(xhr.responseText);
-                console.log(json.fields);
-            }
-        };
-        var data = JSON.stringify({"": from+","+to});
-        xhr.send(data);
-    }   
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.fields);
+        }
+    };
+    var data = JSON.stringify({"from": from, "to": to});
+    xhr.send(data); 
 }
 
 var getValidMoves = function (oneField)
