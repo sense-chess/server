@@ -45,6 +45,7 @@ var ledThisPieceFromTo = [];
 var ledValidMoves = [];
 var lastLEDfield = "mj";
 var ledStatus = 0;
+var lastidBoardInput = 0;
 var LEDfieldsPinArduino = {
     7: "a8",  8: "b8", 23: "c8", 24: "d8", 39: "e8", 40: "f8", 55: "g8", 56: "h8", 
     6: "a7",  9: "b7", 22: "c7", 25: "d7", 38: "e7", 41: "f7", 54: "g7", 57: "h7",
@@ -203,12 +204,15 @@ function updateLatestEntry(){
         type : "POST", 
         data : { action: 'callingPhpFunction'},
         success : function (response) {
-            if(response != previousResponse){
-                var data = response.split(/ /);
-                source = data[0];
-                target = data[1];
-                updateByDatabase(source, target);
+            var data = response.split(/ /);
+            id = data[0];
+            field = data[1];
+            console.log(id + " " + field);
+            if(id != lastidBoardInput)
+            {
+                interpretIncomingData(field);
                 previousResponse = response;
+                lastidBoardInput = id;
             }
             else 
             {

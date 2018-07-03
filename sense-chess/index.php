@@ -7,34 +7,26 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 };
 
-function updateNewest($conn, $state)
+function updateNewest($conn)
 {    
-    $data = 'SELECT * FROM correctmoves ORDER BY id DESC LIMIT 1';
+    $data = 'SELECT * FROM boardinput ORDER BY id DESC LIMIT 1';
     $result = mysqli_query($conn, $data);
     if (!$result)
     {
         die ('SQL Error: ' . mysqli_error($conn));
     }
     $row = mysqli_fetch_assoc($result);
-    $target = $row["target"];
-    $source = $row["source"];
-    if($state == "1")
-    {
-        return $source;
-    }
-    else 
-    {
-        return $target;
-    };
+    $id = $row["id"];
+    $field = $row["field"];
+    return  $id . " " . $field;
 };
 
 @$action = $_POST['action']; 
 
 if("callingPhpFunction" == $action)
 {
-    $source = updateNewest($conn, "1");
-    $target = updateNewest($conn, "2");
-    echo $source . " " . $target;
+    $idAndfield = updateNewest($conn);
+    echo $idAndfield;
     exit;
 };
 ?>
