@@ -58,7 +58,7 @@ var LEDfieldsPinArduino = {
 };
 
 // update website in milliseconds
-setInterval(updateLatestEntry, 5000);
+setInterval(updateLatestEntry, 500);
 
 ///////////////////////////////////////
 // functions we need for sense-chess //
@@ -207,16 +207,11 @@ function updateLatestEntry(){
             var data = response.split(/ /);
             id = data[0];
             field = data[1];
-            console.log(id + " " + field);
             if(id != lastidBoardInput)
             {
                 interpretIncomingData(field);
                 previousResponse = response;
                 lastidBoardInput = id;
-            }
-            else 
-            {
-                console.log("cannot update with same values")
             }
         }
     });
