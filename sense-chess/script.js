@@ -283,6 +283,24 @@ var printLEDsToDatabase = function (field)
     }   
 }
 
+var sendfieldDataToBoardInputDatabase = function (field)
+{     
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost/sense-chess/boardinput.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function ()
+    {
+        if (xhr.readyState === 4 && xhr.status === 200)
+        {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.fields);
+        }
+    };
+    var data = JSON.stringify({"field": field});
+    xhr.send(data);  
+}
+
 var printMoveDatabase = function (from, to)
 {    
     updateByDatabase(from, to);

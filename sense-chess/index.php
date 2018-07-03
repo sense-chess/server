@@ -77,6 +77,7 @@ if("callingPhpFunction" == $action) {
             <button onclick="interpretIncomingData('d4')">d4 next status</button>
             <button onclick="testMove()">test move d7-d6</button>
             <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
+            <button onclick="sendfieldDataToBoardInputDatabase('d7')">input Test in Database</button>
             <button onclick="sendAllLEDsOffToDatabase()">LEDs Off in Database</button>
             <button onclick="deleteEverythingFromEveryDatabase()">! delete EVERY data from database !</button>
             <button onclick="createTestDataInEveryTable()">create test data in every table</button>
