@@ -116,16 +116,19 @@ var interpretIncomingData = function(receivedField)
     }
 }
 
-var testMove = function(){
+var testMove = function()
+{
     interpretIncomingData('d7');
     sleep(1000);
     interpretIncomingData('d6');
 }
 
-var updateByCode = function() {
+var updateByCode = function()
+{
     var from = document.querySelector('#from').value;
     var to = document.querySelector('#to').value;
-    if(!checkmove(from, to)){
+    if(!checkmove(from, to))
+    {
         console.log("wrong move");
         return;
     }
@@ -135,14 +138,16 @@ var updateByCode = function() {
         promotion: 'q'
     });
     removeGreySquares();
-    if (move === null) {
+    if (move === null)
+    {
         return 'snapback';
     }
     renderMoveHistory(game.history());
     board.position(game.fen());
 };
 
-var updateByDatabase = function(source, target) {
+var updateByDatabase = function(source, target)
+{
     console.log(source);
     console.log(target);
     if(!checkmove(source, target)){
@@ -162,7 +167,8 @@ var updateByDatabase = function(source, target) {
     board.position(game.fen());
 };
 
-function sleep(milliseconds) {
+function sleep(milliseconds)
+{
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
       if ((new Date().getTime() - start) > milliseconds){
@@ -171,16 +177,21 @@ function sleep(milliseconds) {
     }
   }
 
-var checkmove = function(from, to) {
+var checkmove = function(from, to)
+{
     var f = t = false;
     Object.keys(SQUARESbestMOVE).forEach(function(key) {
-        if (SQUARESbestMOVE[key] == from) {
+        if (SQUARESbestMOVE[key] == from)
+        {
             f = true;
-        }else if (SQUARESbestMOVE[key] == to) {
+        }
+        else if (SQUARESbestMOVE[key] == to)
+        {
             t = true;
         }
     });
-    if(!f || !t) {
+    if(!f || !t) 
+    {
         return false;
     }
     var checkedmove = game.check_move({
@@ -188,22 +199,27 @@ var checkmove = function(from, to) {
         to: to,
         promotion: 'q'
     });
-    if (checkedmove === null) {
+    if (checkedmove === null)
+    {
         //checkedmove = "wrong";
         return false;
-    } else {
+    } 
+    else
+    {
         //checkedmove = "right";
         return true;
     }
     //console.log(checkedmove);
 };
 
-function updateLatestEntry(){  
+function updateLatestEntry()
+{  
     $.ajax({
         url : "index.php", 
         type : "POST", 
         data : { action: 'callingPhpFunction'},
-        success : function (response) {
+        success : function (response) 
+        {
             var data = response.split(/ /);
             id = data[0];
             field = data[1];
@@ -223,7 +239,8 @@ var sendAllLEDsOffToDatabase = function()
     var ledsOff = ["nope"];
     printLEDsToDatabase(ledsOff);
 }
-var sendTestLEDDataToDatabase = function (){
+var sendTestLEDDataToDatabase = function ()
+{
     var ledsOn = ["d3","h7","a1","e2","f5"];
     printLEDsToDatabase(ledsOn);
 }
@@ -362,7 +379,8 @@ var getBestMoveVariables = function (oneField)
         }
         gop++;
     }
-    if(!found){
+    if(!found)
+    {
         ledThisPieceFromTo = ["nope"];
     }
     var bestMove = minimaxRoot(2, game, true);
@@ -371,7 +389,8 @@ var getBestMoveVariables = function (oneField)
 };
 
 // returns the best move as string and highlighted pieces
-var showBestMove = function () {
+var showBestMove = function ()
+{
     var bestMove = findBestMove(game);
     var from = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(1,2).map(entry => entry[1]), 10)];
     var to = SQUARESbestMOVE[parseInt(Object.entries(bestMove).slice(2,3).map(entry => entry[1]), 10)];
@@ -403,20 +422,24 @@ var bestMoveOfActualPosition = function(oneField)
         }
         gop++;
     }
-    if(!found){
+    if(!found)
+    {
         var nopenop = ["nope"];
         return nopenop;
     }
 }
 
-var createTestDataInEveryTable = function () {
-    if(confirm("Really create test data in EVERY table?")){
+var createTestDataInEveryTable = function ()
+{
+    if(confirm("Really create test data in EVERY table?"))
+    {
         var xhr = new XMLHttpRequest();
         var url = "http://localhost/sense-chess/createtestdata.php";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.readyState === 4 && xhr.status === 200)
+            {
                 var json = JSON.parse(xhr.responseText);
                 console.log(json.create);
             }
@@ -427,13 +450,16 @@ var createTestDataInEveryTable = function () {
 }
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-var deleteEverythingFromEveryDatabase = function () {
-    if(confirm("Really delete EVERY data from ALL databases?")){
+var deleteEverythingFromEveryDatabase = function ()
+{
+    if(confirm("Really delete EVERY data from ALL databases?"))
+    {
         var xhr = new XMLHttpRequest();
         var url = "http://localhost/sense-chess/deleteall.php";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = function ()
+        {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var json = JSON.parse(xhr.responseText);
                 console.log(json.delete);
@@ -445,19 +471,17 @@ var deleteEverythingFromEveryDatabase = function () {
 }
 
 var findBestMove = function (game) {
-    if (game.game_over()) {
+    if (game.game_over())
+    {
         alert('Game over');
     }
-
     positionCount = 0;
     var depth = 3;
-
     var d = new Date().getTime();
     var bestMove = minimaxRoot(depth, game, true);
     var d2 = new Date().getTime();
     var moveTime = (d2 - d);
     var positionsPerS = ( positionCount * 1000 / moveTime);
-
     $('#position-count').text(positionCount);
     $('#time').text(moveTime/1000 + 's');
     $('#positions-per-s').text(positionsPerS);
@@ -481,44 +505,47 @@ var highlightSquares = function(fields)
 
 /*
  * change the players turn 
- * */
+ */
   
 var updateStatus = function() {
     var status = '';
-  
     var moveColor = 'White';
-    if (game.turn() === 'b') {
+    if (game.turn() === 'b')
+    {
       moveColor = 'Black';
     }
-  
     // checkmate?
-    if (game.in_checkmate() === true) {
+    if (game.in_checkmate() === true)
+    {
       status = 'Game over, ' + moveColor + ' is in checkmate.';
     }
-  
     // draw?
-    else if (game.in_draw() === true) {
+    else if (game.in_draw() === true)
+    {
       status = 'Game over, drawn position';
     }
-  
     // game still on
-    else {
-      status = moveColor + ' to move';
-  
-      // check?
-      if (game.in_check() === true) {
-        status += ', ' + moveColor + ' is in check';
-      }
+    else 
+    {
+        status = moveColor + ' to move';
+        // check?
+        if (game.in_check() === true)
+        {
+            status += ', ' + moveColor + ' is in check';
+        }
     }
-  
     statusEl.html(status);
     fenEl.html(game.fen());
     pgnEl.html(game.pgn());
 }; 
 
+
+
+
+
 /*
  * The "original" AI part starts here 
- * */
+ */
 
 var minimaxRoot =function(depth, game, isMaximisingPlayer) {
 
