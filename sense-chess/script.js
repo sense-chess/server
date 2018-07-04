@@ -112,6 +112,7 @@ var interpretIncomingData = function(receivedField)
     }
     else
     {
+        saveLEDs(["nope"]);
         printMoveDatabase(lastLEDfield, receivedField);
     }
 }
