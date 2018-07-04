@@ -1,34 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="45" height="45">
-  <g style="opacity:1; fill:000000; fill-opacity:1; fill-rule:evenodd; stroke:#000000; stroke-width:1.5; stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1;">
-    <g style="fill:#000000; stroke:none;">
-      <circle cx="6"    cy="12" r="2.75" />
-      <circle cx="14"   cy="9"  r="2.75" />
-      <circle cx="22.5" cy="8"  r="2.75" />
-      <circle cx="31"   cy="9"  r="2.75" />
-      <circle cx="39"   cy="12" r="2.75" />
-    </g>
-    <path
-       d="M 9,26 C 17.5,24.5 30,24.5 36,26 L 38.5,13.5 L 31,25 L 30.7,10.9 L 25.5,24.5 L 22.5,10 L 19.5,24.5 L 14.3,10.9 L 14,25 L 6.5,13.5 L 9,26 z"
-       style="stroke-linecap:butt; stroke:#000000;" />
-    <path
-       d="M 9,26 C 9,28 10.5,28 11.5,30 C 12.5,31.5 12.5,31 12,33.5 C 10.5,34.5 10.5,36 10.5,36 C 9,37.5 11,38.5 11,38.5 C 17.5,39.5 27.5,39.5 34,38.5 C 34,38.5 35.5,37.5 34,36 C 34,36 34.5,34.5 33,33.5 C 32.5,31 32.5,31.5 33.5,30 C 34.5,28 36,28 36,26 C 27.5,24.5 17.5,24.5 9,26 z"
-       style="stroke-linecap:butt;" />
-    <path
-       d="M 11,38.5 A 35,35 1 0 0 34,38.5"
-       style="fill:none; stroke:#000000; stroke-linecap:butt;" />
-    <path
-       d="M 11,29 A 35,35 1 0 1 34,29"
-       style="fill:none; stroke:#ffffff;" />
-    <path
-       d="M 12.5,31.5 L 32.5,31.5"
-       style="fill:none; stroke:#ffffff;" />
-    <path
-       d="M 11.5,34.5 A 35,35 1 0 0 33.5,34.5"
-       style="fill:none; stroke:#ffffff;" />
-    <path
-       d="M 10.5,37.5 A 35,35 1 0 0 34.5,37.5"
-       style="fill:none; stroke:#ffffff;" />
-  </g>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1552px"
+	 height="1552px" viewBox="-1064.556 -1403.199 1552 1552" enable-background="new -1064.556 -1403.199 1552 1552"
+	 xml:space="preserve">
+<g id="Background" display="none">
+	<rect x="-1064.556" y="-1403.199" display="inline" fill="#9E9797" width="1552" height="1552"/>
+</g>
+<g id="emoji">
+	<polygon points="-239.556,-1009.58 -285.941,-944.063 -332.327,-1007.337 -324.556,-1061.226 -253.556,-1066.226 	"/>
+	<polygon points="-170.556,-318.617 -398.372,-318.617 -349.247,-761.226 -219.556,-761.226 	"/>
+	<polygon points="-118.556,-125.226 -459.556,-120.617 -459.556,-209.617 -118.556,-205.226 	"/>
+	<g transform="translate(0,-952.36216)">
+		<path d="M-436.877,674.165v28.799h296.641v-28.799H-436.877z"/>
+		<path d="M-476.77,726.005v121.48h14.4h362.025v-121.48H-476.77z M-447.969,754.806h318.826v63.879h-318.826V754.806z"/>
+		<path d="M-485.543,870.524v28.801h393.975v-28.801H-485.543z"/>
+		<path d="M-370.502,174.035l-50.422,477.089h15.998h248.738l-49.32-477.09L-370.502,174.035L-370.502,174.035z M-344.604,202.834
+			h113.131l43.357,419.491h-200.813L-344.604,202.834z"/>
+		<path d="M-429.092-82.555l11.004,32.963l49.635,148.747h159.795l60.637-181.71l-71.031,35.482l-69.076-34.178l-69.885,34.2
+			L-429.092-82.555z M-288.195-49.143l69.188,34.223l21.666-10.822l-32.063,96.098h-118.305l-32.063-96.075l21.623,10.799
+			L-288.195-49.143z"/>
+		<path d="M-290.986-138.377c-14.748,0.59-29.293,6.499-40.432,17.572c-22.277,22.15-23.879,58.009-3.668,82.058l22.051-18.54
+			c-10.752-12.792-9.918-31.326,1.934-43.11c11.854-11.784,30.439-12.531,43.201-1.732c12.76,10.8,15.066,29.208,5.377,42.818
+			l23.467,16.695c18.219-25.59,13.744-61.201-10.236-81.495C-261.283-134.261-276.238-138.969-290.986-138.377z"/>
+		<path d="M-392.844,122.195v28.8h208.576v-28.8H-392.844z"/>
+	</g>
+	<polygon points="-217.556,-870.225 -287.964,-870.225 -356.556,-870.225 -398.372,-995.225 -177.556,-995.225 	"/>
+</g>
 </svg>

@@ -1,39 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="45" height="45">
-  <g style="opacity:1; fill:000000; fill-opacity:1; fill-rule:evenodd; stroke:#000000; stroke-width:1.5; stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1;">
-    <path
-      d="M 9,39 L 36,39 L 36,36 L 9,36 L 9,39 z "
-      style="stroke-linecap:butt;" />
-    <path
-      d="M 12.5,32 L 14,29.5 L 31,29.5 L 32.5,32 L 12.5,32 z "
-      style="stroke-linecap:butt;" />
-    <path
-      d="M 12,36 L 12,32 L 33,32 L 33,36 L 12,36 z "
-      style="stroke-linecap:butt;" />
-    <path
-      d="M 14,29.5 L 14,16.5 L 31,16.5 L 31,29.5 L 14,29.5 z "
-      style="stroke-linecap:butt;stroke-linejoin:miter;" />
-    <path
-      d="M 14,16.5 L 11,14 L 34,14 L 31,16.5 L 14,16.5 z "
-      style="stroke-linecap:butt;" />
-    <path
-      d="M 11,14 L 11,9 L 15,9 L 15,11 L 20,11 L 20,9 L 25,9 L 25,11 L 30,11 L 30,9 L 34,9 L 34,14 L 11,14 z "
-      style="stroke-linecap:butt;" />
-    <path
-      d="M 12,35.5 L 33,35.5 L 33,35.5"
-      style="fill:none; stroke:#ffffff; stroke-width:1; stroke-linejoin:miter;" />
-    <path
-      d="M 13,31.5 L 32,31.5"
-      style="fill:none; stroke:#ffffff; stroke-width:1; stroke-linejoin:miter;" />
-    <path
-      d="M 14,29.5 L 31,29.5"
-      style="fill:none; stroke:#ffffff; stroke-width:1; stroke-linejoin:miter;" />
-    <path
-      d="M 14,16.5 L 31,16.5"
-      style="fill:none; stroke:#ffffff; stroke-width:1; stroke-linejoin:miter;" />
-    <path
-      d="M 11,14 L 34,14"
-      style="fill:none; stroke:#ffffff; stroke-width:1; stroke-linejoin:miter;" />
-  </g>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1552px"
+	 height="1552px" viewBox="-1064.556 -1403.199 1552 1552" enable-background="new -1064.556 -1403.199 1552 1552"
+	 xml:space="preserve">
+<g id="Background" display="none">
+	<rect x="-1064.556" y="-1403.199" display="inline" fill="#9E9797" width="1552" height="1552"/>
+</g>
+<g id="emoji">
+	<polygon points="-167.049,-314.088 -411.516,-311.035 -390.556,-584.667 -181.556,-584.667 	"/>
+	<polygon points="-143.95,-691.435 -431.822,-691.435 -431.822,-741.232 -437.482,-829.226 -377.556,-829.226 -377.556,-758.268 
+		-318.288,-762.226 -318.288,-832.226 -259.556,-829.226 -254.556,-751.226 -198.556,-758.268 -192.556,-827.226 -140.627,-823.226 
+			"/>
+	<polygon points="-104.049,-126.088 -473.062,-121.48 -473.062,-210.48 -104.049,-206.088 	"/>
+	<g transform="translate(0,-952.36216)">
+		<path d="M-408.863,353.983l-16.357,296.5c121.111,0,151.221,0,272.33,0l-16.357-296.5H-408.863z M-381.256,382.784h184.4
+			l13.928,238.898h-212.256L-381.256,382.784z"/>
+		<path d="M-437.482,673.522v28.801h296.855v-28.801H-437.482z"/>
+		<path d="M-485.475,725.362v122.04c161.279,0,231.559,0,392.84,0v-122.04H-485.475z M-456.676,754.162h335.24v64.439h-335.24
+			V754.162z"/>
+		<path d="M-495.756,870.441v28.801h414.4v-28.801H-495.756z"/>
+		<path d="M-425.355,302.144v28.8h272.6v-28.8H-425.355z"/>
+		<path d="M-454.92,109.084v170.02c140.91,0,190.82,0,331.73,0v-170.02h-88.723v70.64h-31.793v-70.64h-89.701v70.64h-31.791v-70.64
+			H-454.92z M-426.121,137.884h32.123v70.64h89.393v-70.64h32.1v70.64h89.393v-70.64h31.123v112.42h-274.131V137.884z"/>
+	</g>
+</g>
 </svg>

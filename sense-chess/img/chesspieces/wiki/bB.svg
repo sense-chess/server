@@ -1,17 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="45" height="45">
-  <g style="opacity:1; fill:none; fill-rule:evenodd; fill-opacity:1; stroke:#000000; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1;">
-    <g style="fill:#000000; stroke:#000000; stroke-linecap:butt;"> 
-      <path
-        d="M 9,36 C 12.39,35.03 19.11,36.43 22.5,34 C 25.89,36.43 32.61,35.03 36,36 C 36,36 37.65,36.54 39,38 C 38.32,38.97 37.35,38.99 36,38.5 C 32.61,37.53 25.89,38.96 22.5,37.5 C 19.11,38.96 12.39,37.53 9,38.5 C 7.646,38.99 6.677,38.97 6,38 C 7.354,36.06 9,36 9,36 z" />
-      <path
-        d="M 15,32 C 17.5,34.5 27.5,34.5 30,32 C 30.5,30.5 30,30 30,30 C 30,27.5 27.5,26 27.5,26 C 33,24.5 33.5,14.5 22.5,10.5 C 11.5,14.5 12,24.5 17.5,26 C 17.5,26 15,27.5 15,30 C 15,30 14.5,30.5 15,32 z" />
-      <path
-        d="M 25 8 A 2.5 2.5 0 1 1  20,8 A 2.5 2.5 0 1 1  25 8 z" />
-    </g>
-    <path
-       d="M 17.5,26 L 27.5,26 M 15,30 L 30,30 M 22.5,15.5 L 22.5,20.5 M 20,18 L 25,18"
-       style="fill:none; stroke:#ffffff; stroke-linejoin:miter;" />
-  </g>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1552px"
+	 height="1552px" viewBox="-1064.556 -1403.199 1552 1552" enable-background="new -1064.556 -1403.199 1552 1552"
+	 xml:space="preserve">
+<g id="Background" display="none">
+	<rect x="-1064.556" y="-1403.199" display="inline" fill="#9E9797" width="1552" height="1552"/>
+</g>
+<g id="emoji">
+	<polygon points="-209.537,-717.276 -350.282,-712.9 -391.381,-796.226 -281.592,-955.226 -224.556,-882.726 -244.298,-811.247 
+		-185.722,-771.559 	"/>
+	<polygon points="-167.684,-315.425 -403.731,-315.425 -352.831,-614.567 -218.454,-614.567 	"/>
+	<polygon points="-104.438,-125.78 -473.451,-121.172 -473.451,-210.172 -104.438,-205.78 	"/>
+	<g transform="translate(0,-952.36216)">
+		<path d="M-279.33-42.597l-132.166,198.271l54.631,95.625h154.957l50.221-87.885l-24.998-14.288l-41.939,73.373h-121.523
+			l-37.508-65.655l98.213-147.33l43.65,66.127l-32.58,49.681l24.075,15.795l42.997-65.521L-279.33-42.597z"/>
+		<path d="M-444.751,674.42v28.801h312.3V674.42H-444.751z"/>
+		<path d="M-485.948,726.26v120.861h14.4h380.385V726.26H-485.948z M-457.148,755.061h337.186v63.26h-337.186V755.061z"/>
+		<path d="M-495.938,870.16v28.801h414.766V870.16H-495.938z"/>
+		<path d="M-368.701,325.874l-54.72,325.507h17.011h262.035l-53.528-325.507H-368.701z M-344.333,354.674h121.973l44.077,267.906
+			H-389.4L-344.333,354.674z"/>
+		<path d="M-391.381,274.033v28.801h219.578v-28.801H-391.381z"/>
+	</g>
+</g>
 </svg>
