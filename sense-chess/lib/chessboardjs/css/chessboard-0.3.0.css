@@ -36,14 +36,14 @@
 
 /* white square */
 .white-1e1d7 {
-  background-color: #ffffffb7;
+  background-color: #f7f7f7f1;
   color: #00000096;
 }
 
 /* black square */
 .black-3c85d {
-  background-color: #ffffff;
-  color: #ffffffb7;
+  background-color: #a1a1a196;
+  color: #f7f7f7f1;
 }
 
 /* highlighted square */
