@@ -32,20 +32,20 @@ if("callingPhpFunction" == $action)
 ?>
 
 <html>
+<head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>sense-chess</title>
-<link rel="shortcut icon" href="../sense-chess.png">
-<link rel="icon" type="image/png" href="../sense-chess.svg">
-<link rel="image_src" href="../sense-chess.svg" />
-<link rel="apple-touch-icon" href="../sense-chess.png" />
+<link rel="shortcut icon" href="../icon.png">
+<link rel="icon" type="image/png" href="../icon.svg">
+<link rel="image_src" href="../icon.svg" />
+<link rel="apple-touch-icon" href="../icon.png" />
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
 <meta name="description" content="sense-chess project HfG Schwäbisch Gmünd"> 
 <meta name="keywords" content="Marcus Schoch, jan-patrick.de, Jan Schneider, HfG, IoT, Internet der Dinge, Student, Hochschule für Gestaltung, Schwäbisch Gmünd, Gmünd, Internet of Things, Bachelor of Arts, Kikife, Kulturbüro, FSJ, Jan-Patrick, Jan, Schneider">
 <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
 <link rel="stylesheet" href="style.css">
-<head>
 </head>
 <body>
     <div id="board" class="board"></div>
