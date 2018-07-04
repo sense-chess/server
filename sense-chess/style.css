@@ -41,112 +41,12 @@ textarea {
 .info {
     width: 500px;
     margin: auto;
+    display: none;
 }
 
 .move-history {
     max-height: 100px;
     overflow-y: scroll;
-}
-
-#back {
-    width: 500px;
-    margin: auto;
-    text-align: center;
-}
-
-#bot {
-    background-color: #ffffff;
-    width: 300px;
-    height: 400px;
-    margin: auto;
-    position: fixed;       
-    right: 10%;
-    bottom: 0%;
-}
-
-#reload {
-    height: 5%;
-    width: auto;    
-    background: none; 
-    opacity: 1;  
-    border-radius: 5%;
-    -webkit-transition: 0.5s;
-    -moz-transition:0.5s;
-    transition: 0.5s; 
-    position: fixed;       
-    left: 4%;
-    top: 2%;
-    z-index: 10;
-    padding:0.2%;   
-    margin-right:1%; 
-    transform-style: flat;
-    font-size: 1.47rem;
-}
-#reload:hover{
-    transform: scale(1.1);   
-}
-#home {
-    height: 5%;
-    width: auto;    
-    background: none; 
-    opacity: 1;  
-    border-radius: 5%;
-    -webkit-transition: 0.5s;
-    -moz-transition:0.5s;
-    transition: 0.5s; 
-    position: fixed;       
-    left: 1%;
-    top: 2%;
-    z-index: 10;
-    padding:0.2%;   
-    margin-right:1%; 
-    transform-style: flat;
-    font-size: 1.47rem;
-}
-#home:hover{
-    transform: scale(1.1);   
-}
-#back {
-    height: 5%;
-    width: auto;    
-    background: none; 
-    opacity: 1;  
-    border-radius: 5%;
-    -webkit-transition: 0.5s;
-    -moz-transition:0.5s;
-    transition: 0.5s; 
-    position: fixed;       
-    left: 1%;
-    bottom: 2%;
-    z-index: 10;
-    padding:0.2%;   
-    margin-right:1%; 
-    transform-style: flat;
-    font-size: 1.47rem;
-}
-#back:hover{
-    transform: scale(1.1);   
-}
-#forward {
-    height: 5%;
-    width: auto;    
-    background: none; 
-    opacity: 1;  
-    border-radius: 5%;
-    -webkit-transition: 0.5s;
-    -moz-transition:0.5s;
-    transition: 0.5s; 
-    position: fixed;       
-    right: 1%;
-    bottom: 2%;
-    z-index: 10;
-    padding:0.2%;   
-    margin-right:1%; 
-    transform-style: flat;
-    font-size: 1.47rem;
-}
-#forward:hover{
-    transform: scale(1.1);   
 }
 
 @media handheld, only screen and (max-width:1040px){
