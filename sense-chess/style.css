@@ -9,8 +9,8 @@ font-family: 'Open Sans', sans-serif;
 * { font-family: 'Source Sans Pro', sans-serif; }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #242424;
+    color: #fafafa;
 }
 
 p {
@@ -28,7 +28,7 @@ a:hover {
 }
 
 textarea {
-    background-color: #ffffff;
+    background-color: #fafafa;
     height: 3%;
     width: 10%;
 }
