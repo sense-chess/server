@@ -122,6 +122,17 @@ function whichButton(event) {
     if(lastMouseButtonPressed != event.button)
     {
         deleteAllData();
+        var t = game.history().length
+        console.log(t);
+        if(t > 0)
+        {
+            for(var ohr = 0; ohr < t; ohr++)
+            {
+                game.undo();
+            }
+        }
+        renderMoveHistory(game.history());
+        board.position(game.fen());
         switch(event.button)
         {
             // left mouse button
@@ -587,6 +598,8 @@ var testMove = function()
     sleep(1000);
     interpretIncomingData('d6');
 }
+
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 var moveMouseLeftButtonStartPos = function()
 {
