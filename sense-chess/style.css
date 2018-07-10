@@ -41,6 +41,15 @@ textarea {
 .info {
     width: 500px;
     margin: auto;
+    display: none;
+}
+
+.testbuttons {
+    width: 500px;
+    margin: auto;
+    /*
+    display: none;
+    */
 }
 
 .move-history {

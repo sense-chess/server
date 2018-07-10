@@ -47,8 +47,20 @@ if("callingPhpFunction" == $action)
 <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onmousedown="whichButton(event)">
     <div id="board" class="board"></div>
+        <div class="testbuttons">
+            <button onclick="sendfieldDataToBoardInputDatabase('d7')">d7 next status</button>
+            <button onclick="sendfieldDataToBoardInputDatabase('d6')">d6 next status</button>
+            <button onclick="sendfieldDataToBoardInputDatabase('d2')">d2 next status</button>
+            <button onclick="sendfieldDataToBoardInputDatabase('d4')">d4 next status</button>
+            <button onclick="testMove()">test move d7-d6</button>
+            <button onclick="moveMouseLeftButtonStartPos()">move 1</button>
+            <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
+            <button onclick="sendAllLEDsOffToDatabase()">LEDs Off in Database</button>
+            <button onclick="deleteEverythingFromEveryDatabase()">! delete EVERY data from database !</button>
+            <button onclick="createTestDataInEveryTable()">create test data in every table</button>
+        </div>
         <div class="info">
             Search depth:
             <select id="search-depth">
@@ -70,15 +82,6 @@ if("callingPhpFunction" == $action)
 		    <button onclick="updateByCode()">move</button>
             </form>
             <br>
-            <button onclick="sendfieldDataToBoardInputDatabase('d7')">d7 next status</button>
-            <button onclick="sendfieldDataToBoardInputDatabase('d6')">d6 next status</button>
-            <button onclick="sendfieldDataToBoardInputDatabase('d2')">d2 next status</button>
-            <button onclick="sendfieldDataToBoardInputDatabase('d4')">d4 next status</button>
-            <button onclick="testMove()">test move d7-d6</button>
-            <button onclick="sendTestLEDDataToDatabase()">LED Test in Database</button>
-            <button onclick="sendAllLEDsOffToDatabase()">LEDs Off in Database</button>
-            <button onclick="deleteEverythingFromEveryDatabase()">! delete EVERY data from database !</button>
-            <button onclick="createTestDataInEveryTable()">create test data in every table</button>
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>

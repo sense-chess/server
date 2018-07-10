@@ -36,6 +36,7 @@ var SQUARESbestMOVEinvert = {
 var PLAYERbestMOVE = {p : 'pawn', n: 'knight', b: 'bishop', r: 'rook', q: 'queen', k: 'king'};
 var bestMoveAsString = "";
 var previousResponse = "";
+var lastMouseButtonPressed = 10;
 
 // variables for LEDs
 var ledPinsToHighlight = [];
@@ -58,7 +59,7 @@ var LEDfieldsPinArduino = {
 };
 
 // update website in milliseconds
-setInterval(updateLatestEntry, 500);
+//setInterval(updateLatestEntry, 500);
 
 ///////////////////////////////////////
 // functions we need for sense-chess //
@@ -117,12 +118,115 @@ var interpretIncomingData = function(receivedField)
     }
 }
 
+function whichButton(event) {
+    if(lastMouseButtonPressed != event.button)
+    {
+        switch(event.button)
+        {
+            // left mouse button
+            case 0:
+                moveMouseLeftButtonStartPos();
+                break;
+            // middle mouse button    
+            case 1:
+                break;
+            // left mouse button
+            case 2: 
+                break;
+            default:
+                console.log("You pressed button: " + event.button);
+                break;               
+        }
+        lastMouseButtonPressed = event.button;
+    }
+    else
+    {
+        switch(event.button)
+        {
+            // left mouse button
+            case 0:
+                moveMouseLeftButtonMovePos();
+                break;
+            // middle mouse button    
+            case 1:
+                break;
+            // left mouse button
+            case 2: 
+                break;
+            default:
+                console.log("You pressed button: " + event.button);
+                break;               
+        }
+    }
+}
+
 var testMove = function()
 {
     interpretIncomingData('d7');
     sleep(1000);
     interpretIncomingData('d6');
 }
+
+var moveMouseLeftButtonStartPos = function()
+{
+    deleteAllData();
+    interpretIncomingData('d2');
+    interpretIncomingData('d4');
+    interpretIncomingData('g8');
+    interpretIncomingData('f6');
+    interpretIncomingData('e2');
+    interpretIncomingData('e3');
+    interpretIncomingData('g7');
+    interpretIncomingData('g5');
+    interpretIncomingData('f1');
+    interpretIncomingData('b5');
+    interpretIncomingData('h7');
+    interpretIncomingData('h6');
+    interpretIncomingData('d2');
+    interpretIncomingData('a2');
+    interpretIncomingData('a4');
+    interpretIncomingData('c7');
+    interpretIncomingData('c5');
+    interpretIncomingData('a1');
+    interpretIncomingData('a3');
+    interpretIncomingData('f6');
+    interpretIncomingData('e4');
+    interpretIncomingData('h2');
+    interpretIncomingData('h4');
+    interpretIncomingData('f8');
+    interpretIncomingData('g7');
+    interpretIncomingData('g1');
+    interpretIncomingData('f3');
+    interpretIncomingData('g7');
+    interpretIncomingData('d4');
+    interpretIncomingData('a3');
+    interpretIncomingData('d3');
+    interpretIncomingData('b7');
+    interpretIncomingData('b6');
+    interpretIncomingData('f3');
+    interpretIncomingData('e5');
+    interpretIncomingData('c8');
+    interpretIncomingData('b7');
+    interpretIncomingData('b5');
+    interpretIncomingData('a6');
+    interpretIncomingData('b8');
+    interpretIncomingData('c6');
+    interpretIncomingData('a6');
+    interpretIncomingData('b7');
+    interpretIncomingData('a8');
+    interpretIncomingData('b8');
+    interpretIncomingData('e5');
+    interpretIncomingData('f7');
+    interpretIncomingData('c6');
+    interpretIncomingData('b4');
+    interpretIncomingData('b1');
+    interpretIncomingData('a3');
+}
+
+var moveMouseLeftButtonMovePos = function()
+{
+    interpretIncomingData('d4');
+}    
 
 var updateByCode = function()
 {
@@ -450,25 +554,30 @@ var createTestDataInEveryTable = function ()
     }    
 }
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var deleteEverythingFromEveryDatabase = function ()
 {
     if(confirm("Really delete EVERY data from ALL databases?"))
     {
-        var xhr = new XMLHttpRequest();
-        var url = "http://localhost/sense-chess/deleteall.php";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function ()
-        {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
-                console.log(json.delete);
-            }
-        };
-        var data = JSON.stringify({"delete": "all"});
-        xhr.send(data);
+        deleteAllData();
     }    
+}
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var deleteAllData = function ()
+{
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost/sense-chess/deleteall.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function ()
+    {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.delete);
+        }
+    };
+    var data = JSON.stringify({"delete": "all"});
+    xhr.send(data);
 }
 
 var findBestMove = function (game) {
