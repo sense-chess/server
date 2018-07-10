@@ -58,6 +58,14 @@ var LEDfieldsPinArduino = {
     0: "a1", 15: "b1", 16: "c1", 31: "d1", 32: "e1", 47: "f1", 48: "g1", 63: "h1"
 };
 
+const intervalDiff = 3000;
+const intervalStart = 1000;
+const interval01 = intervalStart + intervalDiff;
+const interval02 = interval01 + intervalDiff;
+const interval03 = interval02 + intervalDiff;
+const interval04 = interval03 + intervalDiff;
+const interval05 = interval04 + intervalDiff;
+
 // update website in milliseconds
 //setInterval(updateLatestEntry, 500);
 
@@ -119,11 +127,11 @@ var interpretIncomingData = function(receivedField)
 }
 
 function whichButton(event) {
+    console.log("You pressed button: " + event.button);
     if(lastMouseButtonPressed != event.button)
     {
         deleteAllData();
         var t = game.history().length
-        console.log(t);
         if(t > 0)
         {
             for(var ohr = 0; ohr < t; ohr++)
@@ -142,11 +150,12 @@ function whichButton(event) {
             // middle mouse button    
             case 1:
                 break;
-            // left mouse button
+            // right mouse button
             case 2: 
+                moveMouseRightButtonStartPos();
                 break;
             default:
-                console.log("You pressed button: " + event.button);
+                console.log("Wrong button: " + event.button);
                 break;               
         }
         lastMouseButtonPressed = event.button;
@@ -162,11 +171,12 @@ function whichButton(event) {
             // middle mouse button    
             case 1:
                 break;
-            // left mouse button
-            case 2: 
+            // right mouse button
+            case 2:
+                moveMouseRightButtonMovePos(); 
                 break;
             default:
-                console.log("You pressed button: " + event.button);
+                console.log("Wrong button: " + event.button);
                 break;               
         }
     }
@@ -712,6 +722,28 @@ var moveMouseLeftButtonStartPos = function()
 
 var moveMouseLeftButtonMovePos = function()
 {
+    setTimeout(function(){ interpretIncomingData('d4'); },intervalStart);
+    setTimeout(function(){ interpretIncomingData('d4'); },interval01);
+    setTimeout(function(){ interpretIncomingData('d4'); },interval02);
+    setTimeout(function(){ interpretIncomingData('d4'); },interval03);
+    setTimeout(function(){ interpretIncomingData('d4'); },interval04);
+    setTimeout(function(){ interpretIncomingData('d4'); },interval05);
+    clearTimeout();
+}
+
+var moveMouseRightButtonStartPos = function()
+{
+    // saving into database
+    sendfieldDataToBoardInputDatabase('g1');
+    sendfieldDataToBoardInputDatabase('f3');
+
+    // setting up digital board
+    interpretIncomingData('g1');
+    interpretIncomingData('f3');
+}
+
+var moveMouseRightButtonMovePos = function()
+{
     setTimeout(function(){ interpretIncomingData('d4'); },1000);
     setTimeout(function(){ interpretIncomingData('d4'); },4000);
     setTimeout(function(){ interpretIncomingData('d4'); },7000);
@@ -720,9 +752,6 @@ var moveMouseLeftButtonMovePos = function()
     setTimeout(function(){ interpretIncomingData('d4'); },16000);
     clearTimeout();
 }
-
-
-
 
 
 
