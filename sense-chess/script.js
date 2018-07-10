@@ -170,6 +170,60 @@ var testMove = function()
 
 var moveMouseLeftButtonStartPos = function()
 {
+    // saving into database
+    sendfieldDataToBoardInputDatabase('d2');
+    sendfieldDataToBoardInputDatabase('d4');
+    sendfieldDataToBoardInputDatabase('g8');
+    sendfieldDataToBoardInputDatabase('f6');
+    sendfieldDataToBoardInputDatabase('e2');
+    sendfieldDataToBoardInputDatabase('e3');
+    sendfieldDataToBoardInputDatabase('g7');
+    sendfieldDataToBoardInputDatabase('g5');
+    sendfieldDataToBoardInputDatabase('f1');
+    sendfieldDataToBoardInputDatabase('b5');
+    sendfieldDataToBoardInputDatabase('h7');
+    sendfieldDataToBoardInputDatabase('h6');
+    sendfieldDataToBoardInputDatabase('d2');
+    sendfieldDataToBoardInputDatabase('a2');
+    sendfieldDataToBoardInputDatabase('a4');
+    sendfieldDataToBoardInputDatabase('c7');
+    sendfieldDataToBoardInputDatabase('c5');
+    sendfieldDataToBoardInputDatabase('a1');
+    sendfieldDataToBoardInputDatabase('a3');
+    sendfieldDataToBoardInputDatabase('f6');
+    sendfieldDataToBoardInputDatabase('e4');
+    sendfieldDataToBoardInputDatabase('h2');
+    sendfieldDataToBoardInputDatabase('h4');
+    sendfieldDataToBoardInputDatabase('f8');
+    sendfieldDataToBoardInputDatabase('g7');
+    sendfieldDataToBoardInputDatabase('g1');
+    sendfieldDataToBoardInputDatabase('f3');
+    sendfieldDataToBoardInputDatabase('g7');
+    sendfieldDataToBoardInputDatabase('d4');
+    sendfieldDataToBoardInputDatabase('a3');
+    sendfieldDataToBoardInputDatabase('d3');
+    sendfieldDataToBoardInputDatabase('b7');
+    sendfieldDataToBoardInputDatabase('b6');
+    sendfieldDataToBoardInputDatabase('f3');
+    sendfieldDataToBoardInputDatabase('e5');
+    sendfieldDataToBoardInputDatabase('c8');
+    sendfieldDataToBoardInputDatabase('b7');
+    sendfieldDataToBoardInputDatabase('b5');
+    sendfieldDataToBoardInputDatabase('a6');
+    sendfieldDataToBoardInputDatabase('b8');
+    sendfieldDataToBoardInputDatabase('c6');
+    sendfieldDataToBoardInputDatabase('a6');
+    sendfieldDataToBoardInputDatabase('b7');
+    sendfieldDataToBoardInputDatabase('a8');
+    sendfieldDataToBoardInputDatabase('b8');
+    sendfieldDataToBoardInputDatabase('e5');
+    sendfieldDataToBoardInputDatabase('f7');
+    sendfieldDataToBoardInputDatabase('c6');
+    sendfieldDataToBoardInputDatabase('b4');
+    sendfieldDataToBoardInputDatabase('b1');
+    sendfieldDataToBoardInputDatabase('a3');
+
+    // setting up digital board
     interpretIncomingData('d2');
     interpretIncomingData('d4');
     interpretIncomingData('g8');
@@ -225,18 +279,13 @@ var moveMouseLeftButtonStartPos = function()
 
 var moveMouseLeftButtonMovePos = function()
 {
-    setTimeout(interpretIncomingDataD4,1000);
-    setTimeout(interpretIncomingDataD4,4000);
-    setTimeout(interpretIncomingDataD4,7000);
-    setTimeout(interpretIncomingDataD4,10000);
-    setTimeout(interpretIncomingDataD4,13000);
-    setTimeout(interpretIncomingDataD4,16000);
+    setTimeout(function(){ interpretIncomingData('d4'); },1000);
+    setTimeout(function(){ interpretIncomingData('d4'); },4000);
+    setTimeout(function(){ interpretIncomingData('d4'); },7000);
+    setTimeout(function(){ interpretIncomingData('d4'); },10000);
+    setTimeout(function(){ interpretIncomingData('d4'); },13000);
+    setTimeout(function(){ interpretIncomingData('d4'); },16000);
     clearTimeout();
-}
-
-var interpretIncomingDataD4 = function()
-{
-    interpretIncomingData('d4');
 }
 
 var updateByCode = function()
