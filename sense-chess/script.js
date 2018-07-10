@@ -121,6 +121,7 @@ var interpretIncomingData = function(receivedField)
 function whichButton(event) {
     if(lastMouseButtonPressed != event.button)
     {
+        deleteAllData();
         switch(event.button)
         {
             // left mouse button
@@ -169,7 +170,6 @@ var testMove = function()
 
 var moveMouseLeftButtonStartPos = function()
 {
-    deleteAllData();
     interpretIncomingData('d2');
     interpretIncomingData('d4');
     interpretIncomingData('g8');
@@ -225,12 +225,12 @@ var moveMouseLeftButtonStartPos = function()
 
 var moveMouseLeftButtonMovePos = function()
 {
-    interpretIncomingData('d4');
     setTimeout(interpretIncomingDataD4,1000);
-    setTimeout(interpretIncomingDataD4,2000);
-    setTimeout(interpretIncomingDataD4,3000);
-    setTimeout(interpretIncomingDataD4,5000);
-    setTimeout(interpretIncomingDataD4,8000);
+    setTimeout(interpretIncomingDataD4,4000);
+    setTimeout(interpretIncomingDataD4,7000);
+    setTimeout(interpretIncomingDataD4,10000);
+    setTimeout(interpretIncomingDataD4,13000);
+    setTimeout(interpretIncomingDataD4,16000);
     clearTimeout();
 }
 
