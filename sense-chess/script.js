@@ -59,12 +59,28 @@ var LEDfieldsPinArduino = {
 };
 
 const intervalDiff = 3000;
-const intervalStart = 1000;
+const intervalMoveFig = 500;
+const intervalTouchOtherFig = 1000;
+const intervalMoveOpo = 2000;
+const intervalStart = 2000;
 const interval01 = intervalStart + intervalDiff;
 const interval02 = interval01 + intervalDiff;
 const interval03 = interval02 + intervalDiff;
 const interval04 = interval03 + intervalDiff;
 const interval05 = interval04 + intervalDiff;
+const interval06 = interval05;
+const interval07 = interval06 + intervalTouchOtherFig;
+const interval08 = interval07 + intervalMoveFig;
+const interval09 = interval08 + intervalStart;
+const interval10 = interval09;
+const interval11 = interval10 + intervalDiff;
+const interval12 = interval11 + intervalDiff;
+const interval13 = interval12 + intervalDiff;
+const interval14 = interval13 + intervalDiff;
+const interval15 = interval14 + intervalDiff;
+const interval16 = interval15 + intervalDiff;
+const interval17 = interval16 + intervalDiff;
+const interval18 = interval17 + intervalDiff;
 
 // update website in milliseconds
 //setInterval(updateLatestEntry, 500);
@@ -749,22 +765,28 @@ var moveMouseLeftButtonMovePos = function()
 var moveMouseRightButtonStartPos = function()
 {
     // saving into database
-    sendfieldDataToBoardInputDatabase('g1');
-    sendfieldDataToBoardInputDatabase('f3');
+    sendfieldDataToBoardInputDatabase('g8');
+    sendfieldDataToBoardInputDatabase('f6');
 
     // setting up digital board
-    interpretIncomingData('g1');
-    interpretIncomingData('f3');
+    interpretIncomingData('g8');
+    interpretIncomingData('f6');
 }
 
 var moveMouseRightButtonMovePos = function()
 {
-    setTimeout(function(){ interpretIncomingData('d4'); },1000);
-    setTimeout(function(){ interpretIncomingData('d4'); },4000);
-    setTimeout(function(){ interpretIncomingData('d4'); },7000);
-    setTimeout(function(){ interpretIncomingData('d4'); },10000);
-    setTimeout(function(){ interpretIncomingData('d4'); },13000);
-    setTimeout(function(){ interpretIncomingData('d4'); },16000);
+    setTimeout(function(){ interpretIncomingData('h2'); },intervalStart);
+    setTimeout(function(){ interpretIncomingData('h2'); },interval01);
+    setTimeout(function(){ interpretIncomingData('h2'); },interval02);
+    setTimeout(function(){ interpretIncomingData('h2'); },interval03);
+    setTimeout(function(){ interpretIncomingData('h2'); },interval04);
+    setTimeout(function(){ interpretIncomingData('h2'); },interval05);
+    setTimeout(function(){ interpretIncomingData('g2'); interpretIncomingData('g2'); },interval06);
+    setTimeout(function(){ interpretIncomingData('g2'); },interval07);
+    setTimeout(function(){ interpretIncomingData('f4'); },interval08);
+    setTimeout(function(){ interpretIncomingData('e7'); interpretIncomingData('e7');},interval09);
+    setTimeout(function(){ interpretIncomingData('e7'); },interval10);
+    setTimeout(function(){ interpretIncomingData('e5'); },interval10);
     clearTimeout();
 }
 
