@@ -226,7 +226,18 @@ var moveMouseLeftButtonStartPos = function()
 var moveMouseLeftButtonMovePos = function()
 {
     interpretIncomingData('d4');
-}    
+    setTimeout(interpretIncomingDataD4,1000);
+    setTimeout(interpretIncomingDataD4,2000);
+    setTimeout(interpretIncomingDataD4,3000);
+    setTimeout(interpretIncomingDataD4,5000);
+    setTimeout(interpretIncomingDataD4,8000);
+    clearTimeout();
+}
+
+var interpretIncomingDataD4 = function()
+{
+    interpretIncomingData('d4');
+}
 
 var updateByCode = function()
 {
@@ -280,7 +291,7 @@ function sleep(milliseconds)
         break;
       }
     }
-  }
+}
 
 var checkmove = function(from, to)
 {
