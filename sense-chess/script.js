@@ -161,133 +161,6 @@ function whichButton(event) {
     }
 }
 
-var testMove = function()
-{
-    interpretIncomingData('d7');
-    sleep(1000);
-    interpretIncomingData('d6');
-}
-
-var moveMouseLeftButtonStartPos = function()
-{
-    // saving into database
-    sendfieldDataToBoardInputDatabase('d2');
-    sendfieldDataToBoardInputDatabase('d4');
-    sendfieldDataToBoardInputDatabase('g8');
-    sendfieldDataToBoardInputDatabase('f6');
-    sendfieldDataToBoardInputDatabase('e2');
-    sendfieldDataToBoardInputDatabase('e3');
-    sendfieldDataToBoardInputDatabase('g7');
-    sendfieldDataToBoardInputDatabase('g5');
-    sendfieldDataToBoardInputDatabase('f1');
-    sendfieldDataToBoardInputDatabase('b5');
-    sendfieldDataToBoardInputDatabase('h7');
-    sendfieldDataToBoardInputDatabase('h6');
-    sendfieldDataToBoardInputDatabase('d2');
-    sendfieldDataToBoardInputDatabase('a2');
-    sendfieldDataToBoardInputDatabase('a4');
-    sendfieldDataToBoardInputDatabase('c7');
-    sendfieldDataToBoardInputDatabase('c5');
-    sendfieldDataToBoardInputDatabase('a1');
-    sendfieldDataToBoardInputDatabase('a3');
-    sendfieldDataToBoardInputDatabase('f6');
-    sendfieldDataToBoardInputDatabase('e4');
-    sendfieldDataToBoardInputDatabase('h2');
-    sendfieldDataToBoardInputDatabase('h4');
-    sendfieldDataToBoardInputDatabase('f8');
-    sendfieldDataToBoardInputDatabase('g7');
-    sendfieldDataToBoardInputDatabase('g1');
-    sendfieldDataToBoardInputDatabase('f3');
-    sendfieldDataToBoardInputDatabase('g7');
-    sendfieldDataToBoardInputDatabase('d4');
-    sendfieldDataToBoardInputDatabase('a3');
-    sendfieldDataToBoardInputDatabase('d3');
-    sendfieldDataToBoardInputDatabase('b7');
-    sendfieldDataToBoardInputDatabase('b6');
-    sendfieldDataToBoardInputDatabase('f3');
-    sendfieldDataToBoardInputDatabase('e5');
-    sendfieldDataToBoardInputDatabase('c8');
-    sendfieldDataToBoardInputDatabase('b7');
-    sendfieldDataToBoardInputDatabase('b5');
-    sendfieldDataToBoardInputDatabase('a6');
-    sendfieldDataToBoardInputDatabase('b8');
-    sendfieldDataToBoardInputDatabase('c6');
-    sendfieldDataToBoardInputDatabase('a6');
-    sendfieldDataToBoardInputDatabase('b7');
-    sendfieldDataToBoardInputDatabase('a8');
-    sendfieldDataToBoardInputDatabase('b8');
-    sendfieldDataToBoardInputDatabase('e5');
-    sendfieldDataToBoardInputDatabase('f7');
-    sendfieldDataToBoardInputDatabase('c6');
-    sendfieldDataToBoardInputDatabase('b4');
-    sendfieldDataToBoardInputDatabase('b1');
-    sendfieldDataToBoardInputDatabase('a3');
-
-    // setting up digital board
-    interpretIncomingData('d2');
-    interpretIncomingData('d4');
-    interpretIncomingData('g8');
-    interpretIncomingData('f6');
-    interpretIncomingData('e2');
-    interpretIncomingData('e3');
-    interpretIncomingData('g7');
-    interpretIncomingData('g5');
-    interpretIncomingData('f1');
-    interpretIncomingData('b5');
-    interpretIncomingData('h7');
-    interpretIncomingData('h6');
-    interpretIncomingData('d2');
-    interpretIncomingData('a2');
-    interpretIncomingData('a4');
-    interpretIncomingData('c7');
-    interpretIncomingData('c5');
-    interpretIncomingData('a1');
-    interpretIncomingData('a3');
-    interpretIncomingData('f6');
-    interpretIncomingData('e4');
-    interpretIncomingData('h2');
-    interpretIncomingData('h4');
-    interpretIncomingData('f8');
-    interpretIncomingData('g7');
-    interpretIncomingData('g1');
-    interpretIncomingData('f3');
-    interpretIncomingData('g7');
-    interpretIncomingData('d4');
-    interpretIncomingData('a3');
-    interpretIncomingData('d3');
-    interpretIncomingData('b7');
-    interpretIncomingData('b6');
-    interpretIncomingData('f3');
-    interpretIncomingData('e5');
-    interpretIncomingData('c8');
-    interpretIncomingData('b7');
-    interpretIncomingData('b5');
-    interpretIncomingData('a6');
-    interpretIncomingData('b8');
-    interpretIncomingData('c6');
-    interpretIncomingData('a6');
-    interpretIncomingData('b7');
-    interpretIncomingData('a8');
-    interpretIncomingData('b8');
-    interpretIncomingData('e5');
-    interpretIncomingData('f7');
-    interpretIncomingData('c6');
-    interpretIncomingData('b4');
-    interpretIncomingData('b1');
-    interpretIncomingData('a3');
-}
-
-var moveMouseLeftButtonMovePos = function()
-{
-    setTimeout(function(){ interpretIncomingData('d4'); },1000);
-    setTimeout(function(){ interpretIncomingData('d4'); },4000);
-    setTimeout(function(){ interpretIncomingData('d4'); },7000);
-    setTimeout(function(){ interpretIncomingData('d4'); },10000);
-    setTimeout(function(){ interpretIncomingData('d4'); },13000);
-    setTimeout(function(){ interpretIncomingData('d4'); },16000);
-    clearTimeout();
-}
-
 var updateByCode = function()
 {
     var from = document.querySelector('#from').value;
@@ -313,8 +186,6 @@ var updateByCode = function()
 
 var updateByDatabase = function(source, target)
 {
-    console.log(source);
-    console.log(target);
     if(!checkmove(source, target)){
         console.log("wrong move");
         return;
@@ -708,6 +579,136 @@ var updateStatus = function() {
     fenEl.html(game.fen());
     pgnEl.html(game.pgn());
 }; 
+
+
+var testMove = function()
+{
+    interpretIncomingData('d7');
+    sleep(1000);
+    interpretIncomingData('d6');
+}
+
+var moveMouseLeftButtonStartPos = function()
+{
+    // saving into database
+    sendfieldDataToBoardInputDatabase('d2');
+    sendfieldDataToBoardInputDatabase('d4');
+    sendfieldDataToBoardInputDatabase('g8');
+    sendfieldDataToBoardInputDatabase('f6');
+    sendfieldDataToBoardInputDatabase('e2');
+    sendfieldDataToBoardInputDatabase('e3');
+    sendfieldDataToBoardInputDatabase('g7');
+    sendfieldDataToBoardInputDatabase('g5');
+    sendfieldDataToBoardInputDatabase('f1');
+    sendfieldDataToBoardInputDatabase('b5');
+    sendfieldDataToBoardInputDatabase('h7');
+    sendfieldDataToBoardInputDatabase('h6');
+    sendfieldDataToBoardInputDatabase('d2');
+    sendfieldDataToBoardInputDatabase('a2');
+    sendfieldDataToBoardInputDatabase('a4');
+    sendfieldDataToBoardInputDatabase('c7');
+    sendfieldDataToBoardInputDatabase('c5');
+    sendfieldDataToBoardInputDatabase('a1');
+    sendfieldDataToBoardInputDatabase('a3');
+    sendfieldDataToBoardInputDatabase('f6');
+    sendfieldDataToBoardInputDatabase('e4');
+    sendfieldDataToBoardInputDatabase('h2');
+    sendfieldDataToBoardInputDatabase('h4');
+    sendfieldDataToBoardInputDatabase('f8');
+    sendfieldDataToBoardInputDatabase('g7');
+    sendfieldDataToBoardInputDatabase('g1');
+    sendfieldDataToBoardInputDatabase('f3');
+    sendfieldDataToBoardInputDatabase('g7');
+    sendfieldDataToBoardInputDatabase('d4');
+    sendfieldDataToBoardInputDatabase('a3');
+    sendfieldDataToBoardInputDatabase('d3');
+    sendfieldDataToBoardInputDatabase('b7');
+    sendfieldDataToBoardInputDatabase('b6');
+    sendfieldDataToBoardInputDatabase('f3');
+    sendfieldDataToBoardInputDatabase('e5');
+    sendfieldDataToBoardInputDatabase('c8');
+    sendfieldDataToBoardInputDatabase('b7');
+    sendfieldDataToBoardInputDatabase('b5');
+    sendfieldDataToBoardInputDatabase('a6');
+    sendfieldDataToBoardInputDatabase('b8');
+    sendfieldDataToBoardInputDatabase('c6');
+    sendfieldDataToBoardInputDatabase('a6');
+    sendfieldDataToBoardInputDatabase('b7');
+    sendfieldDataToBoardInputDatabase('a8');
+    sendfieldDataToBoardInputDatabase('b8');
+    sendfieldDataToBoardInputDatabase('e5');
+    sendfieldDataToBoardInputDatabase('f7');
+    sendfieldDataToBoardInputDatabase('c6');
+    sendfieldDataToBoardInputDatabase('b4');
+    sendfieldDataToBoardInputDatabase('b1');
+    sendfieldDataToBoardInputDatabase('a3');
+
+    // setting up digital board
+    interpretIncomingData('d2');
+    interpretIncomingData('d4');
+    interpretIncomingData('g8');
+    interpretIncomingData('f6');
+    interpretIncomingData('e2');
+    interpretIncomingData('e3');
+    interpretIncomingData('g7');
+    interpretIncomingData('g5');
+    interpretIncomingData('f1');
+    interpretIncomingData('b5');
+    interpretIncomingData('h7');
+    interpretIncomingData('h6');
+    interpretIncomingData('d2');
+    interpretIncomingData('a2');
+    interpretIncomingData('a4');
+    interpretIncomingData('c7');
+    interpretIncomingData('c5');
+    interpretIncomingData('a1');
+    interpretIncomingData('a3');
+    interpretIncomingData('f6');
+    interpretIncomingData('e4');
+    interpretIncomingData('h2');
+    interpretIncomingData('h4');
+    interpretIncomingData('f8');
+    interpretIncomingData('g7');
+    interpretIncomingData('g1');
+    interpretIncomingData('f3');
+    interpretIncomingData('g7');
+    interpretIncomingData('d4');
+    interpretIncomingData('a3');
+    interpretIncomingData('d3');
+    interpretIncomingData('b7');
+    interpretIncomingData('b6');
+    interpretIncomingData('f3');
+    interpretIncomingData('e5');
+    interpretIncomingData('c8');
+    interpretIncomingData('b7');
+    interpretIncomingData('b5');
+    interpretIncomingData('a6');
+    interpretIncomingData('b8');
+    interpretIncomingData('c6');
+    interpretIncomingData('a6');
+    interpretIncomingData('b7');
+    interpretIncomingData('a8');
+    interpretIncomingData('b8');
+    interpretIncomingData('e5');
+    interpretIncomingData('f7');
+    interpretIncomingData('c6');
+    interpretIncomingData('b4');
+    interpretIncomingData('b1');
+    interpretIncomingData('a3');
+}
+
+var moveMouseLeftButtonMovePos = function()
+{
+    setTimeout(function(){ interpretIncomingData('d4'); },1000);
+    setTimeout(function(){ interpretIncomingData('d4'); },4000);
+    setTimeout(function(){ interpretIncomingData('d4'); },7000);
+    setTimeout(function(){ interpretIncomingData('d4'); },10000);
+    setTimeout(function(){ interpretIncomingData('d4'); },13000);
+    setTimeout(function(){ interpretIncomingData('d4'); },16000);
+    clearTimeout();
+}
+
+
 
 
 
