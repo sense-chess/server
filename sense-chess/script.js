@@ -68,19 +68,6 @@ const interval02 = interval01 + intervalDiff;
 const interval03 = interval02 + intervalDiff;
 const interval04 = interval03 + intervalDiff;
 const interval05 = interval04 + intervalDiff;
-const interval06 = interval05;
-const interval07 = interval06 + intervalTouchOtherFig;
-const interval08 = interval07 + intervalMoveFig;
-const interval09 = interval08 + intervalStart;
-const interval10 = interval09;
-const interval11 = interval10 + intervalDiff;
-const interval12 = interval11 + intervalDiff;
-const interval13 = interval12 + intervalDiff;
-const interval14 = interval13 + intervalDiff;
-const interval15 = interval14 + intervalDiff;
-const interval16 = interval15 + intervalDiff;
-const interval17 = interval16 + intervalDiff;
-const interval18 = interval17 + intervalDiff;
 
 // update website in milliseconds
 //setInterval(updateLatestEntry, 500);
@@ -102,7 +89,8 @@ var interpretIncomingData = function(receivedField)
             getBestMoveVariables(receivedField);
             lastLEDfield = receivedField;
         }
-        switch(ledStatus){
+        switch(ledStatus)
+        {
             // show all valid moves of the touched piece
             case 0:
                 ledPinsToHighlight = [receivedField];
@@ -140,6 +128,53 @@ var interpretIncomingData = function(receivedField)
         saveLEDs(["nope"]);
         printMoveDatabase(lastLEDfield, receivedField);
     }
+}
+
+var interpretIncomingDataWithStatus = function(receivedField, thisStatus)
+{
+    removeGreySquares();
+    if(!checkmove(lastLEDfield, receivedField))
+    {
+        if(lastLEDfield != receivedField)
+        {
+            getValidMoves(receivedField);
+            getBestMoveVariables(receivedField);
+            lastLEDfield = receivedField;
+        }
+        switch(thisStatus)
+        {
+            // show all valid moves of the touched piece
+            case 0:
+                ledPinsToHighlight = [receivedField];
+                break;
+            case 1:
+                ledPinsToHighlight = ledValidMoves;
+                break;
+            // show best move of touched piece
+            case 2:
+                ledPinsToHighlight = ledThisPieceFromTo;
+                break;
+            // show a piece that can make a better move than the touched one
+            case 3:
+                ledPinsToHighlight = [ledFrom];
+                break;
+            // show a piece that can make a better move than the touched one
+            case 4:
+                ledPinsToHighlight = [ledFrom, ledTo];
+                break;
+            default:
+                ledPinsToHighlight = ["nope"];
+                console.log("wrong status: "+thisStatus);
+                break;
+        }
+        saveLEDs(ledPinsToHighlight);
+    }
+    else
+    {
+        saveLEDs(["nope"]);
+        printMoveDatabase(lastLEDfield, receivedField);
+    }
+    status = thisStatus;
 }
 
 function whichButton(event) {
@@ -781,12 +816,14 @@ var moveMouseRightButtonMovePos = function()
     setTimeout(function(){ interpretIncomingData('h2'); },interval03);
     setTimeout(function(){ interpretIncomingData('h2'); },interval04);
     setTimeout(function(){ interpretIncomingData('h2'); },interval05);
-    setTimeout(function(){ interpretIncomingData('g2'); interpretIncomingData('g2'); },interval06);
-    setTimeout(function(){ interpretIncomingData('g2'); },interval07);
-    setTimeout(function(){ interpretIncomingData('f4'); },interval08);
-    setTimeout(function(){ interpretIncomingData('e7'); interpretIncomingData('e7');},interval09);
-    setTimeout(function(){ interpretIncomingData('e7'); },interval10);
-    setTimeout(function(){ interpretIncomingData('e5'); },interval10);
+    setTimeout(function(){ interpretIncomingDataWithStatus('g2',3); },interval05+3000);
+    setTimeout(function(){ interpretIncomingData('g4'); },interval05+5000);
+    setTimeout(function(){ interpretIncomingDataWithStatus('e7',2); },interval05+6000);
+    setTimeout(function(){ interpretIncomingData('e6'); },interval05+13000);
+    setTimeout(function(){ interpretIncomingData('b1'); },interval05+15000+intervalStart);
+    setTimeout(function(){ interpretIncomingData('b1'); },interval05+15000+interval01);
+    setTimeout(function(){ interpretIncomingData('b1'); },interval05+15000+interval02);
+    setTimeout(function(){ interpretIncomingData('a3'); },interval05+15000+interval03);
     clearTimeout();
 }
 

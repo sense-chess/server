@@ -31,7 +31,7 @@ if("callingPhpFunction" == $action)
 };
 ?>
 
-<html>
+<html onmousedown="whichButton(event)">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,7 +47,7 @@ if("callingPhpFunction" == $action)
 <link rel="stylesheet" href="lib/chessboardjs/css/chessboard-0.3.0.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body onmousedown="whichButton(event)">
+<body>
     <div id="board" class="board"></div>
         <div class="testbuttons">
             <button onclick="sendfieldDataToBoardInputDatabase('d7')">d7 next status</button>
