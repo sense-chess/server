@@ -784,16 +784,21 @@ var moveMouseLeftButtonStartPos = function()
     interpretIncomingData('b4');
     interpretIncomingData('f7');
     interpretIncomingData('f5');
+
+    interpretIncomingData('g2');
+    interpretIncomingData('g4');
+    interpretIncomingData('a5');
+    interpretIncomingData('b4');
 }
 
 var moveMouseLeftButtonMovePos = function()
 {
-    setTimeout(function(){ interpretIncomingData('b4'); },intervalStart);
-    setTimeout(function(){ interpretIncomingData('b4'); },interval01);
-    setTimeout(function(){ interpretIncomingData('b4'); },interval02);
-    setTimeout(function(){ interpretIncomingData('b4'); },interval03);
-    setTimeout(function(){ interpretIncomingData('b4'); },interval04);
-    setTimeout(function(){ interpretIncomingData('b4'); },interval05);
+    setTimeout(function(){ interpretIncomingData('b5'); },intervalStart);
+    setTimeout(function(){ interpretIncomingData('b5'); },interval01);
+    setTimeout(function(){ interpretIncomingData('b5'); },interval02);
+    setTimeout(function(){ interpretIncomingData('b5'); },interval03);
+    setTimeout(function(){ interpretIncomingData('b5'); },interval04);
+    setTimeout(function(){ interpretIncomingData('b5'); },interval05);
     clearTimeout();
 }
 
