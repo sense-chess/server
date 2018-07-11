@@ -1100,18 +1100,23 @@ var onMouseoverSquare = function(square, piece) {
         square: square,
         verbose: true
     });
-
+    var fieldsToLEDs = [];
+    
     if (moves.length === 0) return;
 
     greySquare(square);
+    fieldsToLEDs.push(square);
 
     for (var i = 0; i < moves.length; i++) {
         greySquare(moves[i].to);
+        fieldsToLEDs.push(moves[i].to);
     }
+    printLEDsToDatabase(fieldsToLEDs);
 };
 
 var onMouseoutSquare = function(square, piece) {
     removeGreySquares();
+    printLEDsToDatabase(["nope"]);
 };
 
 var removeGreySquares = function() {
