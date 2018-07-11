@@ -724,6 +724,10 @@ var moveMouseLeftButtonStartPos = function()
     sendfieldDataToBoardInputDatabase('b4');
     sendfieldDataToBoardInputDatabase('f7');
     sendfieldDataToBoardInputDatabase('f5');
+    sendfieldDataToBoardInputDatabase('g2');
+    sendfieldDataToBoardInputDatabase('g4');
+    sendfieldDataToBoardInputDatabase('a5');
+    sendfieldDataToBoardInputDatabase('b4');
 
     // setting up digital board
     interpretIncomingData('g8');
@@ -784,7 +788,6 @@ var moveMouseLeftButtonStartPos = function()
     interpretIncomingData('b4');
     interpretIncomingData('f7');
     interpretIncomingData('f5');
-
     interpretIncomingData('g2');
     interpretIncomingData('g4');
     interpretIncomingData('a5');
