@@ -45,6 +45,7 @@ var ledTo = "";
 var ledThisPieceFromTo = [];
 var ledValidMoves = [];
 var lastLEDfield = "mj";
+var lastLEDSent = "-2";
 var ledStatus = 0;
 var lastidBoardInput = 0;
 var LEDfieldsPinArduino = {
@@ -388,8 +389,9 @@ var printLEDsToDatabase = function (field)
     {
         send = "-1";
     }
-    if(send != "")
+    if(send != "" && lastLEDSent != send)
     {      
+        lastLEDSent = send;
         var xhr = new XMLHttpRequest();
         var url = "http://localhost/sense-chess/leds.php";
         xhr.open("POST", url, true);
