@@ -85,7 +85,6 @@ if("callingPhpFunction" == $action)
             <br>
             <div id="move-history" class="move-history"></div>    
         </div>
-        <br><br>
     <script src="lib/jquery/jquery-3.2.1.min.js"></script>
     <script src="lib/chessboardjs/js/chess.js"></script>
     <script src="lib/chessboardjs/js/chessboard-0.3.0.js"></script>
