@@ -59,9 +59,9 @@ var LEDfieldsPinArduino = {
    63: "a1", 62: "b1", 61: "c1", 60: "d1", 59: "e1", 58: "f1", 57: "g1", 56: "h1"
 };
 
-const intervalDiff = 3000;
-const intervalMoveFig = 500;
-const intervalTouchOtherFig = 1000;
+const intervalDiff = 5000;
+const intervalMoveFig = 1000;
+const intervalTouchOtherFig = 2000;
 const intervalMoveOpo = 2000;
 const intervalStart = 2000;
 const interval01 = intervalStart + intervalDiff;
