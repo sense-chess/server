@@ -19,10 +19,16 @@
 <br>
 <h4 align="center">Attribution</h4>
 <p align="center">
-  <a href="https://github.com/lhartikk/simplsense-chess-ai">simplsense-chess-ai</a>
+  <a href="https://github.com/lhartikk/simple-chess-ai">simple-chess-ai</a>
   <br>
   <a href="https://github.com/oakmac/chessboardjs">chessboardjs</a>
   <br>
   <a href="https://github.com/jhlywa/chess.js">chess.js</a>
   <br>
 </p>
+<br><br>
+<h4 align="center">Attribution Requirements</h4>
+<p align="center">As an open source project, attribution is critical from a legal, practical and motivational perspective. Please give us credits! Common places for attribution are for example: to mention us in your project README, the 'About' section or the footer on a website/in mobile apps. </p>
+<br><br>
+<h4 align="center">License</h4>
+<p align="center">This work is licensed under the GNU General Public License v3.0 license. View LICENSE.txt for details.</p>
